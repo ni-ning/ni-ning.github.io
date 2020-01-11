@@ -1,3 +1,6 @@
+* Python
+   * [基础编程](https://github.com/ni-ning/LearnPython)
+   * [高级编程](https://advance-python.readthedocs.io/zh_CN/latest/)
 
 * 编程思想
     * [算法](think/algorithm)
