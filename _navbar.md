@@ -2,7 +2,7 @@
 * 编程思想
 	* [算法](think/algorithm)
 	* [数据结构](think/data-structure)
-	* [设计模式](think/pattern)
+	* [设计模式](pattern/)
 
 * 源码分析
    * [requests](code/request)
