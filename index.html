@@ -34,17 +34,6 @@
           '/': '搜索'
         }
 			
-			markdown: function (marked, renderer) {
-        delete renderer.code;
-        marked.setOptions({
-          renderer: renderer,
-          highlight: function (code, lang) {
-            return hljs.highlightAuto(code, [lang]).value;
-          },
-        });
-        return marked;
-      }
-			
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
