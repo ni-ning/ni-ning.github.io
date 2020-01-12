@@ -31,10 +31,25 @@
 			previousText: '上一章节',
 			nextText: '下一章节',
 		},
-		ga: 'UA-156074264-1'
-	  // plugins: [
-	  //       EditOnGithubPlugin.create(docBase, docEditBase, title)
-	  //     ]
+		ga: 'UA-156074264-1',
+		plugins: [
+		        function (hook, vm) {
+		          hook.beforeEach(function (html) {
+		            if (/githubusercontent\.com/.test(vm.route.file)) {
+		              url = vm.route.file
+		                .replace('raw.githubusercontent.com', 'github.com')
+		                .replace(/\/master/, '/blob/master')
+		            } else {
+		              url = 'https://github.com/docsifyjs/docsify/blob/master/docs/' + vm.route.file
+		            }
+		            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+		
+		            return editHtml
+		              + html
+		              + '\n\n----\n\n'
+		              + '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
+		          })
+		        },
 
     }
   </script>
@@ -50,6 +65,8 @@
 	
 	<script src="//unpkg.com/docsify-copy-code"></script>
 	<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+	
+	<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 
 </body>
 </html>
