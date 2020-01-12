@@ -38,16 +38,12 @@
 		            if (/githubusercontent\.com/.test(vm.route.file)) {
 		              url = vm.route.file
 		                .replace('raw.githubusercontent.com', 'github.com')
-		                .replace(/\/master/, '/blob/master')
+		                .replace(/\/master/, '/ni-ning/ni-ning.github.io')
 		            } else {
-		              url = 'https://github.com/docsifyjs/docsify/blob/master/docs/' + vm.route.file
+		              url = 'https://github.com/ni-ning/ni-ning.github.io/' + vm.route.file
 		            }
 		            var editHtml = '[:memo: Edit Document](' + url + ')\n'
-		
-		            return editHtml
-		              + html
-		              + '\n\n----\n\n'
-		              + '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
+		            return editHtml + html
 		          })
 		        },
 				
@@ -69,6 +65,10 @@
 	<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
 	
 	<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
-
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 </body>
 </html>
