@@ -7,6 +7,7 @@
   <meta name="description" content="ni-ning笔记网站">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div id="app">加载中</div>
@@ -69,6 +70,20 @@
   if (typeof navigator.serviceWorker !== 'undefined') {
     navigator.serviceWorker.register('sw.js')
   }
+</script>
+
+<script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '142ae07ebc0366cd6e4a',
+    clientSecret: '7fddcc5748f6d95325978e4137b2e9a6ffc78104',
+    repo: 'https://github.com/ni-ning/ni-ning.github.io',
+    owner: 'ni-ning',
+    admin: ['ni-ning'],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
+  })
 </script>
 </body>
 </html>
