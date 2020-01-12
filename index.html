@@ -13,9 +13,9 @@
   <script>
     window.$docsify = {
 		el: '#app',
-		repo:'ni-ning/ni-ning.github.io',
+		// epo:'ni-ning/ni-ning.github.io',
 		name: 'ni-ning',
-		logo: '/_media/icon.svg',
+		// logo: '/_media/icon.svg',
 		loadNavbar: true,
 		loadSidebar: true,
 		auto2top: true,
@@ -31,11 +31,15 @@
         previousText: '上一章节',
         nextText: '下一章节',
       },
+	  plugins: [
+	        EditOnGithubPlugin.create(docBase, docEditBase, title)
+	      ]
 
     }
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+	<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 	<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 	<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+	<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 </body>
 </html>
