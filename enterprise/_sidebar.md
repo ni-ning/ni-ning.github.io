@@ -6,13 +6,13 @@
     * [启动常用镜像](enterprise/docker/images)
 
 * 源码管理
-    * [git](enterprise/git/git)
-	* [gitlab](enterprise/git/gitlab)
-	* [github](enterprise/git/github)
+    * [Git](enterprise/git/git)
+	* [Gitlab](enterprise/git/gitlab)
+	* [Github](enterprise/git/github)
 
 * 网站发布
     * [部署网站](enterprise/web/deply-web)
     * [uwsgi](enterprise/web/uwsgi)
-	* [nginx](enterprise/web/nginx)
-	* [ubuntu](enterprise/web/ubuntu)
-	* [devops](enterprise/web/devops)
+	* [Nginx](enterprise/web/nginx)
+	* [Ubuntu](enterprise/web/ubuntu)
+	* [DevOps](enterprise/web/devops)

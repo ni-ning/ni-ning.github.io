@@ -24,13 +24,12 @@ This book is divided into four parts, each covering some aspect of the command l
 
 > This book is an ongoing project, like many open source software projects.
 
-{% hint style="info" %}
-快速识别整段英文信息：形容词的中心词 + 动词结构 + 形容词的宾语结构，说明性介词结构
-{% endhint %}
+
+!> 快速识别整段英文信息：形容词的中心词 + 动词结构 + 形容词的宾语结构，说明性介词结构
 
 ## Part 1 - Learning the Shell
 
-###  1 - What Is the Shell?
+####  1 - What Is the Shell?
 
 > The shell is a program that takes keyboard commands and passes them to the operating system to carry tou.
 
@@ -45,7 +44,7 @@ This book is divided into four parts, each covering some aspect of the command l
 * at the prompt
 * in this chapter
 
-### 2 - Navigation
+#### 2 - Navigation
 
 * `pwd` - Print name of current working directory
 * `cd` - Change directory
@@ -54,14 +53,14 @@ This book is divided into four parts, each covering some aspect of the command l
   * cd ~username
 * `ls` - List directory contents
 
-### 3 - Exploring the System
+#### 3 - Exploring the System
 
 * `ls`  get a list of files and subdirectories contained in the current working directory
 * `ls /usr`  specify the directory to list
 * `ls ~ /usr`  specify multiple direcotories
 * `ls -l`  change the format of the output to reveal more detail
 
-#### Options and Arguments
+##### Options and Arguments
 
 This brings us to a very important point about how most commands work. Commands are often followed by one or more _**options**_ that modify their behavior, and further, by one or more _**arguments**_, the items upon which the command acts. So most commands look kind of like this:
 
@@ -73,13 +72,13 @@ the ls command has a large of possible options. The most common are listed below
 
 ![](../../.gitbook/assets/image%20%2810%29.png)
 
-#### A Longer Look at Long Format
+##### A Longer Look at Long Format
 
 ![](../../.gitbook/assets/image%20%286%29.png)
 
-#### Determing a File's Type with file
+##### Determing a File's Type with file
 
-#### View File Contents with less  - Less Is More
+##### View File Contents with less  - Less Is More
 
 `less /etc/passwd`  to examine the file that defines all teh sysmtem's user accounts.
 
@@ -89,7 +88,7 @@ The less program was designed as an improved replacement of an earlier Unix prog
 英文名词 an improved replacement  &lt;  --  &gt;  中文动词  提高替换
 {% endhint %}
 
-#### Taking a Guided Tour
+##### Taking a Guided Tour
 
 命令行界面：双击选中，点击滑轮粘贴
 
@@ -172,9 +171,9 @@ In most Unix-like systems it is possible to have a file referenced by multiple n
 * foo -&gt; foo.2.7
 * libc.so.6 -&gt; libc.2.6.so
 
-#### Hard Links
+##### Hard Links
 
-### 4 - Manipulating Files and Directories
+#### 4 - Manipulating Files and Directories
 
 * cp - Copy files and directories
 * mv - Move/rename files and directories
@@ -184,13 +183,13 @@ In most Unix-like systems it is possible to have a file referenced by multiple n
 
 These five commands are among the most frequently user Linux commands.
 
-#### Wildcards
+##### Wildcards
 
 Since the shell uses filenames so much, it provides special charaters to help us rapidly specify groups of filenames. These special charaters are called _**wildcards**_.
 
 Wildcards can be used with any command that accepts filenames as arguments.
 
-#### mkdir - Create Directories
+##### mkdir - Create Directories
 
 mkdir direcotory...
 
@@ -219,11 +218,11 @@ mv dir1/fun .
 
 `ln -s item symbolic-link`
 
-### 5 - Working with Commands
+#### 5 - Working with Commands
 
 We will attempt to remove mysterious options and arguments and even create our own commands.
 
-#### What Exactly Are Commands?
+##### What Exactly Are Commands?
 
 * an executable program
 * a command built into the shell itself
@@ -248,11 +247,11 @@ Creating Our Own Commands with alias
 * unalias foo
 * alias
 
-### 6 - Redirection
+#### 6 - Redirection
 
 In this lesson we are going to unleash what may be the coolest feature of the command line. It's called I/O redirection. I/O redirection allows us to change where output goes and where input comes from. Normally, output goes to the screen and input comes form the keyboard, but with I/O redirection, we can change that.
 
-#### Standard Input, Output, and Error
+##### Standard Input, Output, and Error
 
 Many of the programs produce output of some kind.
 
@@ -281,7 +280,7 @@ ls -l /usr/bin &>> ls.txt
 ls -l /bin/usr 2> /dev/null
 ```
 
-#### Redirecting Standard Input
+##### Redirecting Standard Input
 
 cat - Concatenate Files
 
@@ -297,7 +296,7 @@ cat > lazy_dog.txt
 cat < lazy_dog.txt
 ```
 
-#### Pipelines
+##### Pipelines
 
 Using the pipe operator \| \(vertical lar\), the standard output of one command  can be piped into the standard input of another.
 
@@ -332,9 +331,9 @@ tail -n 5 ls-output.txt
 tail -f /var/log/messages
 ```
 
-### 7 - Seeing the World as the Shell Sees It
+#### 7 - Seeing the World as the Shell Sees It
 
-#### Expansion
+##### Expansion
 
 Each time we type a command and press the Enter key, _**bash**_ perform serveral substituions\(replacement\) upon the text before it carries out our command.
 
@@ -382,7 +381,7 @@ echo "The balance for user $USER is: \$5.00"
 >>> The balance for user ubuntu is: $5.00
 ```
 
-### 8 - Advanced Keyboard Tricks
+#### 8 - Advanced Keyboard Tricks
 
 #### Command Line Editing
 
@@ -417,7 +416,7 @@ ctrl + r    # 搜索历史命令
 >>>(reverse-i-search)`': xxxx
 ```
 
-### 9 - Permissions
+#### 9 - Permissions
 
 Operating systems in the Unix tradition differ from those in the MS-DOS tradition in that they are not only _**multitasking systems**_, but also _**multi-user systems**_.
 
@@ -459,7 +458,7 @@ To authenticating using sudo, requires the user's own password.
 
 _**passwd**_ - Changing Your Password
 
-### 10 - Processes
+#### 10 - Processes
 
 Processes are how Linux organizes the different programs waiting for their turn at the CPU.
 
@@ -483,7 +482,7 @@ killall xlogo
 
 ## Part 2 - Configuration and the Environment
 
-### 11 - The Environment
+#### 11 - The Environment
 
 > As we discussed earlier, the shell maintains a body of information during our shell session called the _**environment**_.
 
@@ -528,7 +527,7 @@ The changes we have made to our .bashrc will not take effect until we close our 
 
 `source ~/.bashrc`
 
-### 12 - A Gentle Introduction to vi
+#### 12 - A Gentle Introduction to vi
 
 #### Why We Should Learn vi
 
@@ -536,7 +535,7 @@ The changes we have made to our .bashrc will not take effect until we close our 
 * vi is lightweiht and fast.
 * We don't want other Linux and Unix users to think we are cowards.
 
-### 13 - Customizing the Prompt
+#### 13 - Customizing the Prompt
 
 The Prompt is defined by an environment variable named PS1\(short for "prompt string 1"\)
 
@@ -546,7 +545,7 @@ Most terminal emulator programs respond to certain non-printing character sequen
 
 ## Part 3 - Common Tasks and Essential Tools
 
-### 14 - Package Management
+#### 14 - Package Management
 
 Most distributions fall into one of two camps of packaging technologies: the Debian .deb camp and the Red Hat .rmp camp
 
@@ -621,7 +620,7 @@ dpkg -s|--status tmux    # 查看安装信息
 dpkg -S tmux             # 查看安装路径
 ```
 
-### 16 - Networking
+#### 16 - Networking
 
 #### ping - Send an ICMP ECHO\_REQUEST to network hosts
 
@@ -657,7 +656,7 @@ find ~ -type f -name '*.jpg' -size +1M
 find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
 ```
 
-### 18 - Archiving and Backup
+#### 18 - Archiving and Backup
 
 > Throughout the history of computing, there has been a struggle to get the most data into the smallest available space, whether that space be memory, storage devices, or network bandwidth.
 
@@ -719,7 +718,7 @@ unzip p.zip
 rsync -av source destination
 ```
 
-### 23 - Compiling Programs
+#### 23 - Compiling Programs
 
 Why compile software?
 
@@ -953,7 +952,7 @@ It uses the following syntax:
 
 #### \(\( \)\) - Designed for Integers
 
-### 28 - Reading Keyboard Input
+#### 28 - Reading Keyboard Input
 
 #### read - Read Values from Standard Input
 
@@ -963,7 +962,7 @@ read -p "Enter value >"
 echo "REPLY = '$REPLY'"
 ```
 
-### 29 - Flow Control: Looping with while/until
+#### 29 - Flow Control: Looping with while/until
 
 #### while
 
