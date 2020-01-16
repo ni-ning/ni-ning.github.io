@@ -1,5 +1,5 @@
 * 其他主题
-    * [Python基础](python/)
+    * [Python编程](python/)
     * [设计模式](pattern/)
     * [企业应用](enterprise/)
     * [源码分析](code/)
