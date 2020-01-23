@@ -1,7 +1,7 @@
 ## Vue.js 简介
 
 ### 1. Vue.js是什么
-**Vue.js** 也称Vue, 读音/vju:/, 类似view, 错误读音v-u-
+**Vue.js** 也称Vue, 读音/vju:/, 类似view, 错误读音v-u-e
 版本: v1.0 v2.0
 
 + 是一个构建用户界面的框架

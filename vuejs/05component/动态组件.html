@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var vm = new Vue({
+					el: '#itany',
+					data: {
+						flag: 'my-hello'
+					},
+					components:{
+						'my-hello': {
+							template: '<h3>我是hello组件: {{x}}</h3>',
+							data(){
+								return {
+									x: Math.random()
+								}
+							}
+						},
+						'my-world': {
+							template: '<h3>我是world组件: {{y}}</h3>',
+							data(){
+								return {
+									y: Math.random()
+								}
+							}
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="itany">
+			<button type="button" @click="flag='my-hello'">hello组件</button>
+			<button type="button" @click="flag='my-world'">world组件</button>
+			<keep-alive>
+				<component :is='flag'></component>
+			</keep-alive>
+		</div>
+	</body>
+</html>
