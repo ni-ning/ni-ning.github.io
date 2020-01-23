@@ -1,4 +1,5 @@
-## 一、发送AJAX请求
+## 发送AJAX请求
+
 ### 1. 简介
 vue本身不支持发送AJAX请求, 需要使用vue-resource、axios等插件  
 axios是一个基于Promise的HTTP请求客户端, 用来发送请求, 也是vue2.0官方推荐, 同时不再对vue-resouce进行更新维护

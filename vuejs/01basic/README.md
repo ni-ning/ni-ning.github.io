@@ -1,6 +1,5 @@
-### Vue.js
-
 ## 一、Vue.js 简介
+
 ### 1. Vue.js是什么
 **Vue.js** 也称Vue, 读音/vju:/, 类似view, 错误读音v-u-
 版本: v1.0 v2.0
@@ -30,7 +29,8 @@
 共同点：都不兼容低版本IE
 
 
-## 二、起步
+## 起步
+
 ### 1. 下载核心库 vue.js
 ```
 git clone --branch v2.6.10 https://github.com/vuejs/vue.git
@@ -60,18 +60,18 @@ vue2.0和v1.0相比, 最大的变化就是引入了Virtual DOM(虚拟DOM), 页�
 ### 3. 安装 vue-devtools插件, 便于在chrome中调试
 
 
-## 三、常用指令
+## 常用指令
 
 ### 1. 什么是指令
 用来扩展html标签的功能
 ### 2. vue中常用的指令
 + v-model 双向数据绑定, 一般用于表单元素
 + v-for 对数组或对象进行循环操作
-+ v-on 用来绑定事件, 用法 on:事件="函数"
++ v-on 用来绑定事件, 用法 v-on:事件="函数"
 +  v-show/v-if 显示或隐藏元素, v-show是通过display实现, v-if是每次删除再创建
 
 
-## 四、练习: 用户管理
+## 练习: 用户管理
 BootStrap + Vue
 
 ```
@@ -82,7 +82,7 @@ jQuery v1.11.1
 git clone --branch 1.11.1 https://github.com/jquery/jquery.git
 ```
 
-## 五、事件和属性
+## 事件和属性
 
 ### 1. 事件
 #### 1.1 事件简写
@@ -137,7 +137,7 @@ v-bind 用户属性绑定, v-bind:属性=""
 :class="{aa: true, bbb: true}"  
 :sytle="val"   val: {fontSize: 100}
 
-## 六、模板
+## 模板
 
 ### 1. 简介
 Vue.js 是使用基于HTML的模板语法, 可以将DOM绑定到Vue实例中的数据  
@@ -153,7 +153,7 @@ b. 单项绑定
 v-once 数据只绑定一次, 不会随着v-model的变化而变化  
 v-pre  不编译, 直接显示, 如{{msg}}直接显示
 
-## 七、过滤器
+## 过滤器
 ### 1. 简介
 用来过滤模型数据, 在显示之前进行数据处理和筛选  
 语法:  {{ data | filter1(参数) | filter2(参数)}}

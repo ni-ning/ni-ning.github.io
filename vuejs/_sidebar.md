@@ -2,3 +2,5 @@
 * [axios请求数据](vuejs/02axios/)
 * [vue生命周期](vuejs/03cycle/)
 * [自定义指令](vuejs/04directive/)
+
+* [扩展库说明](vuejs/link)
