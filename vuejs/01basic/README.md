@@ -1,4 +1,4 @@
-## 一、Vue.js 简介
+## Vue.js 简介
 
 ### 1. Vue.js是什么
 **Vue.js** 也称Vue, 读音/vju:/, 类似view, 错误读音v-u-
