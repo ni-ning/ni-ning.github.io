@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axios</title>
+		<script src="../js/vue.js"></script>
+		<script src="../js/axios.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				Vue.config.devtools = true;
+				var vm = new Vue({
+					el: "#itany",
+					data: {
+						msg: "Hello World!",
+						uid: '',
+						account: {}
+					},
+					methods: {
+						"send": function(){
+							console.log('from func send.')
+							axios({
+								method: 'get',
+								// url: 'user.json',
+								url: 'http://httpbin.org/get'
+							}).then(resp => {
+								
+								console.log(resp);
+							}).catch(error => {
+								console.log(error);
+							})
+						},
+						"sendGet": function(){
+							console.log('from func sendGet.');
+							axios.get('http://httpbin.org/get',{
+								params:{id:111, name: 'linda'}
+							}).then(resp => {
+								console.log(resp);
+							})
+						},
+						"sendPost": function(){
+							console.log('from func sendPost');
+							axios.post('http://httpbin.org/post', data={id:1111, name: 'linda'}).then(resp => {
+								console.log(resp);
+							})
+						},
+						"getUserById": function(uid){
+							axios.get('https://api.github.com/users/' + uid).then(resp => {
+								console.log(resp.data);
+								this.account = resp.data;
+								
+							}).catch(error => {
+								console.log(error);
+							})
+						},
+						"func": function(){
+							console.log('from func: ' + this.uid);
+							this.getUserById(this.uid);
+						}
+					}
+				});
+			};
+		</script>
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="itany">
+			<span v-cloak>{{msg}}</span><br><br>
+			
+			<button type="button" @click="send">axios()</button><br><br>
+			<button type="button" @click="sendGet">axios.get()</button><br><br>
+			<button type="button" @click="sendPost">axios.post()</button><br><br>
+			
+			Github ID: <input type="text" v-model="uid" @keydown.enter="func">
+			<button type="button" @click="getUserById(uid)">Submit</button>
+			<div>
+				<div>姓名：{{account.name}}</div>
+				<div>头像：<img :src="account.avatar_url" alt=""></div>
+			</div>
+			
+		</div>
+	</body>
+</html>

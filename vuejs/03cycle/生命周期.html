@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>生命周期</title>
+		<script src="../js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.config.devtools = true;
+			window.onload = function(){
+				var vm = new Vue({
+					el: '#itany',
+					data: {
+						xxxxxxxxxx: 'Hello World XXX',
+						user: {
+							id: 1000,
+							name: 'linda'
+						},
+						message: 'message'
+					},
+					name: 'linda',
+					age: 20,
+					methods: {
+						update: function(){
+							this.xxxxxxxxxx = 'update xxxxxx';
+						},
+						destroy: function(){
+							this.$destroy();
+						},
+						addUser: function(){
+							console.log('from addUser')
+							// this.user.age = 100;
+							this.$set(this.user, 'age', 100)
+						}
+					},
+					computed: {
+						msg: function(){
+							return '欢迎来到南京网博!';
+						},
+						yyyyyyyyyyy: function(){
+							return this.xxxxxxxxxx.split(' ').reverse().join(' ');
+						}
+					},
+					beforeCreate: function(){
+						console.log('1. Info from beforeCreate:');
+						console.log('组件实例刚刚创建，还未进行数据观测和事件配置');
+						console.log(this);
+						console.log(vm);
+					},
+					created: function(){  // 常用!!!
+						console.log('2. Info from created:')
+						console.log('实例已经创建完成，并且已经进行数据观测和事件配置');
+						console.log(this);
+						console.log(vm);
+					},
+					beforeMount: function(){
+						console.log('3. Info from beforeMount:');
+						console.log('模板编译之前，还没挂载');
+						console.log(this);
+						console.log(vm)
+					},
+					mounted: function(){  // 常用!!!
+						console.log('4. Info from mounted:');
+						console.log('模板编译之后，已经挂载，此时才会渲染页面，才能看到页面上数据的展示');
+						console.log(this);
+						console.log(vm);
+					},
+					// beforeUpdate: function(){
+					// 	console.log('5. Info from beforeUpdate:');
+					// 	alert('组件更新之前');
+					// 	console.log(this);
+					// 	console.log(vm);
+					// },
+					// updated: function(){
+					// 	console.log('6. Info from updated:');
+					// 	alert('组件更新之后');
+					// 	console.log(this);
+					// 	console.log(vm);
+					// },
+					beforeDestroy: function(){
+						console.log('7. Info from beforeDestroy:');
+						alert('组件销毁之前');
+						console.log(this);
+						console.log(vm);
+					},
+					destroyed: function(){
+						console.log('8. Info from destroyed:');
+						alert('组件销毁字后');
+						console.log(this);
+						console.log(vm);
+					},
+					watch: {
+						message: function(newValue, oldValue){
+							console.log('message has changed from old value: ' + oldValue + ' to new value: ' + newValue);
+						}
+					}
+					
+				});	
+				console.log(vm.xxxxxxxxxx);
+				console.log(vm.$el);
+				console.log(vm.$data);
+				console.log(vm.$options);
+				console.log(vm.$options.name);
+				console.log(vm.$options.age);
+				
+				console.log(vm.$refs);
+				console.log(vm.$refs.hello);
+				
+				// vm.$watch('message', function(newValue, oldValue){
+				// 	console.log('message has changed from old value: ' + oldValue + ' to new value: ' + newValue);
+				// });
+			};
+			
+		</script>
+	</head>
+	<body>
+		<div id="itany">
+			<h4>Vue生命周期</h4>
+			<input type="text" v-model="xxxxxxxxxx"/>
+			{{xxxxxxxxxx}} <br><br>
+			
+			<button type="button" @click="update">更新组件</button>
+			<button type="button" @click="destroy">删除组件</button>
+			
+			<h4>计算属性</h4>
+			{{msg}} <br> {{yyyyyyyyyyy}}
+			
+			<h4>vm属性和方法</h4>
+			<div ref='hello'>你好</div>
+			<div ref='world'>世界</div><br>
+			
+			<button type="button" @click="addUser">添加对象属性</button>
+			{{user.name}} {{user.age}} <br><br>
+			
+			<input type="text" v-model="message">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<title>01基础练习</title>
+		<script src="../js/vue.js"></script>
+		<script>
+			Vue.config.keyCodes = {
+				a: 65
+			};
+			// Vue.filter('addZero', function(data){
+			// 	return data < 10 ? '0' + data : data;
+			// });
+			Vue.filter('number', (data, n) => {
+				return data.toFixed(3);
+			});
+			
+			Vue.filter('date', (date) => {
+				let d = new Date(date);
+				return d.getFullYear() + d.getMonth();
+			});
+			
+			window.onload = function () {
+				Vue.config.devtools = true;
+				Vue.config.productionTip = false;
+				
+				var vm = new Vue({
+					el: '#itany',
+					data: {
+						msg: "Hello world!",
+						url: "https://www.baidu.com/img/bd_logo1.png",
+						user: {id: 2000, name: 'alex', address: '北京 朝阳'},
+						currentTime: Date.now()
+					},
+					methods: {
+						show(e){
+							console.log('from function show.');
+							console.log(e);
+							console.log(e.target);
+						},
+						display(e){
+							console.log('from function display.');
+							console.log(e.target);
+						},
+						write(e){
+							console.log('from function write.');
+							console.log(e.target);
+						},
+						study(){
+							console.log('from study.');
+						},
+						keycode(e){
+							if (e.keyCode == 13){
+								console.log('触发了回车');
+							}
+						},
+						print(){
+							console.log('只有回车时才触发');
+						},
+						a(){
+							console.log('触发')
+						}
+						
+					},
+					// created: function(){
+					// 	alert(1000);
+					// }
+					filters: {
+						'addZero': function(data){return data < 10 ? '0' + data : data}
+					}
+						
+				})
+			};
+		</script>
+		<style type="text/css">
+			.aa{
+				color: red;
+				font-size: 24px;
+			}
+			.bb{
+				background-color: #ccc;
+			}
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='itany'>
+			<h4>1. $event事件对象 @click.stop阻止事件冒泡</h4>
+			<div @click="write($event)">
+				<div @click="display($event)">
+					<button type="button" @click.stop="show($event)">show me</button>
+				</div>
+			</div>
+			
+			<h4>2. $event事件对象 @click.prevent阻止事件默认行为</h4>
+			<a href="#" @click.prevent="study">超链接</a>
+			
+			<h4>3. 键盘事件</h4>
+			<table border="0" cellspacing="" cellpadding="">
+				<tr><td>用户名：</td><td><input type="text" @keydown="keycode($event)" placeholder="keydown"></td></tr>
+				<tr><td>性 别：</td><td><input type="text" @keydown.enter="print"></td></tr>
+				<tr><td>属性a：</td><td><input type="text" @keydown.a="a"></td></tr>
+			</table>
+			
+			<h4>4. 属性绑定</h4>
+			<!-- <img v-bind:src="url" alt=""> -->
+			<img :src="url">
+			
+			<!-- <p class="aa">南京 北京</p> -->
+			<p :class="{aa:true, bb:true}">北京 南京</p>
+			
+			<h4>5. 模板</h4>
+			<!-- 解决闪烁 -->
+			<p v-cloak>{{msg}}</p>
+			<p v-text="msg"></p>
+			
+			<p v-once>只用一次： {{msg}}</p>
+			msg: <input type="text" v-model="msg">
+			
+			<p v-pre>{{msg}}</p>
+			
+			<h4>6. 自定义过滤器</h4>
+			{{ 8 | addZero }} <br>
+			{{ 12.34567 | number(3)}} <br>
+			{{ currentTime | date }}
+		</div>
+	</body>
+</html>
