@@ -3,6 +3,7 @@
 - Python基础编程
     - [开发基础]()
 	- [函数编程]()
+	- [常用模块](python/module/)
 	- [面向对象]()
 	- [网络编程]()
 	- [并发编程](python/concurrent/multiprocess/)

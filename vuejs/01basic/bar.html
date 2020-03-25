@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>bar</title>
+		<script src="../js/vue.js"></script>
+
+	</head>
+	<body>
+		<div id="app">
+			{{ message }} {{name}} 
+			<br>
+			<span v-bind:title="msg1">
+			鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+			<br>
+			
+			<p v-if="seen">现在你看到我了</p>
+			
+			<ol>
+				<li v-for="todo in todos">{{todo.text}}</li>
+			</ol>
+			
+			<ol>
+				<todo-item
+					v-for="item in groceryList"
+					v-bind:todo="item"
+					v-bind:key="item.id"
+				></todo-item>
+			</ol>
+			
+		</div>
+		
+		<script type="text/javascript">
+			Vue.component('todo-item',{
+				template:'<li>{{todo.text}}</li>',
+				props:['todo']
+			});
+			
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: "Hello Vue.",
+					name: "Linda",
+					msg1: '页面加载于 ' + new Date().toLocaleString(),
+					seen: true,
+					todos: [
+					      { text: '学习 JavaScript' },
+					      { text: '学习 Vue' },
+					      { text: '整个牛项目' }
+					    ],
+					groceryList: [
+						  { id: 0, text: '蔬菜' },
+						  { id: 1, text: '奶酪' },
+						  { id: 2, text: '随便其它什么人吃的东西' }
+						]
+				}
+			});
+		</script>
+	</body>
+</html>

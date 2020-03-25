@@ -1,5 +1,8 @@
 ## Vue.js 简介
 
+渐进式JavaScript框架
+- 数据驱动视图
+
 ### 1. Vue.js是什么
 **Vue.js** 也称Vue, 读音/vju:/, 类似view, 错误读音v-u-e
 版本: v1.0 v2.0
@@ -27,6 +30,11 @@
 + 由个人维护: **尤雨溪**, 华人, 目前就职于阿里巴巴
 
 共同点：都不兼容低版本IE
+
+
+
+### 3. 前端框架与库的区别
+- 讲的不错
 
 
 ## 起步
@@ -69,6 +77,67 @@ vue2.0和v1.0相比, 最大的变化就是引入了Virtual DOM(虚拟DOM), 页�
 + v-for 对数组或对象进行循环操作
 + v-on 用来绑定事件, 用法 v-on:事件="函数"
 +  v-show/v-if 显示或隐藏元素, v-show是通过display实现, v-if是每次删除再创建
+
+
+指令封装了一些DOM行为，结合属性作为一个暗号，暗号有对应的值，根据不同的值，框架会进行相应DOM操作的绑定
+
+- v-text 等价于 {{}} 实现原理: innerText
+- v-html 实现原理: innerHTML
+- v-if/v-show   v-if="Math.random() > 0.5";v-if="isShow" ;v-if="func()";
+- v-for 遍历数组或对象
+	* v-for="(item, index) for item in menuList"  {{index}}:{{item}} 
+	* v-for="(value, key) in object" -- {{key}}={{value}}
+- v-bind 进行属性绑定 缩写 := 得是数据属性中的值，如data
+	* v-bind:calss='{active: true}'
+	* v-bind:src="url"
+	* :class, :src, :id
+
+- v-on 事件三步走：1. 事件源 2. 事件类型 3. 事件驱动程序
+	* v-on:click 对当前DOM绑定click事件
+	* v-on:click  <--> @click
+
+
+- v-model 来实现vue的双向数据绑定，只允许在表单控件中使用  data <--> view
+	* input
+	* textarea
+	* select
+
+v-model 实现原理
+
+	<input type="text", :value="msg", @input="changeHandler($event)">
+	data: {
+		msg: '数据'
+	},
+	methods: {
+		changeHandler(event){
+			this.msg = event.target.value;
+		}
+	}
+
+
+v-text v-html {{}} 对页面的dom进行赋值运算 相当于js中的innerText innerHTML
+
+v-if 实现原理
+	
+	v-if='true'
+	var oP = document.createElement('p');
+	oDiv.appendChild(op);
+	
+	v-if='false'
+	oDiv.removeChild(op)
+	
+v-show 实现原理
+
+	v-show='true'
+	oDiv.style.display='block';
+	
+	v-show='false'
+	oDiv.style.display='none';
+
+v-bind:class 实现原理
+ 
+	oDiv.className += ' active'
+
 
 
 ## 练习: 用户管理

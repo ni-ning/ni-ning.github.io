@@ -26,3 +26,9 @@ Lodash 通过降低 array、number、objects、string 等等的使用难度从�
 axios是一个基于Promise的HTTP请求客户端, 用来发送请求, 同时不再对[vue-resource](https://github.com/pagekit/vue-resource)维护
 - [源码文件](https://github.com/axios/axios)
 
+
+### webpack
+- [官文网站](http://webpack.github.io/)
+
+### Element
+- [官方网站](https://element.eleme.cn/#/zh-CN)
