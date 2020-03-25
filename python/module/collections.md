@@ -12,7 +12,7 @@ python 内置类型
 	- 可以和C原因类比 tuple对应struct, list对应array
 
 
-```
+```python
 # tuple
 name_tuple = ('linda1', 'linda2')
 # 动态语言支持，静态语言就不支持，变量的本质
@@ -31,7 +31,7 @@ name, age, height = ('linda', 18, '175com')
 - 相比于自定义类，省空间
 - 最佳场景 name_tuple=pymysql取一列
 
-```
+```python
 # nametuple
 from collections import namedtuple
 
@@ -45,7 +45,7 @@ print(dict(user._asdict()))
 
 # defaultdict
 传入参数为可调用对象
-```
+```python
 # defaultdict
 from collections import defaultdict
 
@@ -75,7 +75,7 @@ print(default_dict)
 - deque 线程安全 GIL
 - list 不是线程安全
 
-```
+```python
 # deque
 from collections import deque
 
@@ -88,7 +88,7 @@ print(user, dd)     # linda1 deque(['linda2'])
 
 继承 dict
 
-```
+```python
 # Counter
 from collections import Counter
 users = ['linda1', 'linda2', 'linda1', 'linda1']
@@ -96,7 +96,6 @@ user_count = Counter(users)     # 直接初始化就行
 user_count.update(['linda2', 'linda'])  # 两个合并统计
 print(user_count)
 print(user_count.most_common(2))    # 取前两个
-
 ```
 
 # OrderedDict
@@ -104,7 +103,7 @@ print(user_count.most_common(2))    # 取前两个
 - 继承 dict，具备dict特点
 - 顺序添加，相应输出
 
-```
+```python
 # OrderedDict
 from collections import OrderedDict
 
@@ -119,7 +118,7 @@ print(ordered_dict)
 ## ChainMap
 - chain map
 
-```
+```python
 # ChainMap
 from collections import ChainMap
 
