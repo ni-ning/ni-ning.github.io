@@ -12,4 +12,4 @@
 	- 姓 名: ni-ning
     - 邮 件: nining1314@gmail.com
     - 博 客: https://ni-ning.cn/
-    * 源 码: https://github.com/ni-ning
+    - 源 码: https://github.com/ni-ning
