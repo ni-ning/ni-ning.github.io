@@ -8,11 +8,8 @@
 - [读书笔记-流畅的Python](https://github.com/ni-ning/FluentPython)
 
 
-
-
-
 # 关于作者
-    * 姓名：		ni-ning
-    * Email：	nining1314@gmail.com
-    * 博客：		https://ni-ning.cn/
-    * GitHub：  	https://github.com/ni-ning
+	- 姓 名: ni-ning
+    - 邮 件: nining1314@gmail.com
+    - 博 客: https://ni-ning.cn/
+    * 源 码: https://github.com/ni-ning
