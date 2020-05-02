@@ -11,9 +11,15 @@
 - [读书笔记]-CookBook
 - [读书笔记]-EffectPython
 - [[读书笔记]-MongoDB](book/mongodb)
+- [[读书笔记]-LinuxCommand](book/ubuntu)
 - [[源码分析]-requests](code/requests/)
 - [源码分析]-mongoengine
 - [[源码分析]-django](code/django/)
+- [企业工具服务-git](enterprise/git/)
+- [企业工具服务-docker](enterprise/docker)
+- [企业工具服务-nginx](enterprise/nginx)
+- 企业工具服务-uwsgi
+- [企业工具服务-mongodb](enterprise/mnogodb)
 
 ## 关于作者
 	- 姓 名: ni-ning

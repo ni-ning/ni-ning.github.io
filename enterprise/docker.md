@@ -275,3 +275,26 @@ docker run -it --rm --net=container:<container_id> nining1314/nginx:v.1.12.2
 ## 扩展阅读
 
 - [Docker - 从入门到实践](https://yeasy.gitbooks.io/docker_practice/)
+
+
+## 启动常用镜像
+
+### alpine
+```
+docker run -it --rm alpine /bin/sh
+```
+
+### rabbitmq
+```
+docker run -d  --rm --name rabbitmq  \
+-p 5672:5672 \
+-p 5671:5671 \
+-p 4369:4369 \
+-p  25672:25672 \
+rabbitmq
+```
+
+### redis
+```
+docker run -d --rm --name redis -p 6379:6379 redis:alpine
+```
