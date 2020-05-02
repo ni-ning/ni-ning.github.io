@@ -1,7 +1,6 @@
 * 开发基础
 * 函数编程
 * 常用模块
-	* [collections](python/module/collections)
 * 面向对象
 * 网络编程
 
