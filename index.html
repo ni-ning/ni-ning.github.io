@@ -32,22 +32,22 @@
 			nextText: '下一章节',
 		},
 		ga: 'UA-156074264-1',
-		plugins: [
-		        function (hook, vm) {
-		          hook.beforeEach(function (html) {
-		            if (/githubusercontent\.com/.test(vm.route.file)) {
-		              url = vm.route.file
-		                .replace('raw.githubusercontent.com', 'github.com')
-		                .replace(/\/master/, '/ni-ning/ni-ning.github.io')
-		            } else {
-		              url = 'https://github.com/ni-ning/ni-ning.github.io/blob/master/' + vm.route.file
-		            }
-		            var editHtml = '[:memo: Edit Document](' + url + ')\n'
-		            return editHtml + html
-		          })
-		        },
+		// plugins: [
+		//         function (hook, vm) {
+		//           hook.beforeEach(function (html) {
+		//             if (/githubusercontent\.com/.test(vm.route.file)) {
+		//               url = vm.route.file
+		//                 .replace('raw.githubusercontent.com', 'github.com')
+		//                 .replace(/\/master/, '/ni-ning/ni-ning.github.io')
+		//             } else {
+		//               url = 'https://github.com/ni-ning/ni-ning.github.io/blob/master/' + vm.route.file
+		//             }
+		//             var editHtml = '[:memo: Edit Document](' + url + ')\n'
+		//             return editHtml + html
+		//           })
+		//         },
 				
-				]
+		// 		]
 
     }
   </script>
