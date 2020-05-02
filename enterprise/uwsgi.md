@@ -19,7 +19,7 @@ Web服务器网关接口(Web Server Gateway Interface), 或者Python Web Server 
 ## 安装部署
 
 ### 各组件示意图
-[](../images/uwsgi.jpg)
+![uwsgi](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/uwsgi.jpg)
 
 ### 部署操作
 ```bash

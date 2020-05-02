@@ -18,7 +18,7 @@
 - [企业工具服务-git](enterprise/git/)
 - [企业工具服务-docker](enterprise/docker)
 - [企业工具服务-nginx](enterprise/nginx)
-- 企业工具服务-uwsgi
+- [企业工具服务-uwsgi](enterprise/uwsgi)
 - [企业工具服务-mongodb](enterprise/mnogodb)
 
 ## 关于作者
