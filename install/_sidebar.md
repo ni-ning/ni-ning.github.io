@@ -1,3 +1,3 @@
 
-* [打包发布](install/setuptools)
-* [地址解析](install/urllib)
+* [打包发布-setuptools](install/setuptools)
+* [地址解析-urllib](install/urllib)
