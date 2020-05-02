@@ -10,7 +10,7 @@
 * 获取响应中的数据值
 * 持久化存储
 
-### 代理
+## 代理
 
 * 正向代理：代理客户端获取数据。正向代理是为了保护客户端防止被追究责任。
 * 反向代理：代理服务器提供数据。反向代理是为了保护服务器或负责负载均衡。
@@ -45,7 +45,7 @@ urlencode(query_dict) --> query_str
 * 官方中文:  [https://s0urllib30readthedocs0io.icopy.site/en/latest/index.html](https://s0urllib30readthedocs0io.icopy.site/en/latest/index.html)
 * 源码链接:  [https://github.com/urllib3/urllib3](https://github.com/urllib3/urllib3)
 
-### 基本使用
+## 基本使用
 
 ```python
 import urllib3
@@ -58,7 +58,7 @@ print(json.loads(r.data.decode('utf-8')))
 print(r.headers)
 ```
 
-### 源码分析
+## 源码分析
 
 分析\_\_init\_\_.py就可以得出对外提供的功能
 
@@ -84,11 +84,11 @@ __all__ = (
 * Retry，Timeout 整数封装成附加其他功效的简单功能类
 * HTTPResponse 对返回数据的Model封装
 
-#### PoolManager与RequestMethods
+### PoolManager与RequestMethods
 
 ![](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/poolmanager.png)
 
-#### 主干类的层次结构
+### 主干类的层次结构
 
 ![](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/urllib3.png)
 
