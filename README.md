@@ -11,12 +11,15 @@
 - [[读书笔记]-FluentPython](https://github.com/ni-ning/FluentPython)
 - [读书笔记]-CookBook
 - [读书笔记]-EffectPython
+- [读书笔记]-PythonTricks
 - [[读书笔记]-LinuxCommand](book/ubuntu)
 
 ## 源码分析
 - [[源码分析]-requests](code/requests/)
 - [源码分析]-mongoengine
 - [[源码分析]-django](code/django/)
+- [源码分析]-flask
+- [源码分析]-apscheduler
 
 ## 企业工具服务
 - [企业工具服务-git](tools/git)
