@@ -19,7 +19,7 @@
 - [[源码分析]-django](code/django/)
 
 ## 企业工具服务
-- [企业工具服务-git](enterprise/git/)
+- [企业工具服务-git](enterprise/git)
 - [企业工具服务-docker](enterprise/docker)
 - [企业工具服务-nginx](enterprise/nginx)
 - [企业工具服务-uwsgi](enterprise/uwsgi)
