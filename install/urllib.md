@@ -37,7 +37,8 @@ urlencode(query_dict) --> query_str
 ```
 
 
-# urllib3源码泛读
+
+# urllib3
 
 > urllib3是一个功能强大，方便使用，Python实现的HTTP客户端
 
