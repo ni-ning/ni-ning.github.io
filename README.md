@@ -14,7 +14,6 @@
 - [[源码分析]-requests](code/requests/)
 - [源码分析]-mongoengine
 - [[源码分析]-django](code/django/)
-- [企业工具服务](enterprise)
 
 ## 关于作者
 	- 姓 名: ni-ning
