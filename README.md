@@ -7,6 +7,10 @@
 - 数据结构(Python版)
 - 程序算法(Python版)
 
+## 常用依赖
+- [打包发布-setuptools](install/setuptools)
+- [地址解析-urllib](install/urllib)
+
 ## 读书笔记
 - [[读书笔记]-FluentPython](https://github.com/ni-ning/FluentPython)
 - [读书笔记]-CookBook
