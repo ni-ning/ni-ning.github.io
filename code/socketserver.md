@@ -1,4 +1,4 @@
-# socketserver源码泛读
+# socketserver
 
 socket编写简单的网络程序很方便，但复杂一点的网络程序还是用现成的框架比较好
 

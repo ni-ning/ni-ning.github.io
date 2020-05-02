@@ -1,7 +1,6 @@
 
 * 网络请求
    * [requests](code/requests/)
-   * [urllib3](code/urllib3)
    * [socketserver](code/socketserver)
 
 * django

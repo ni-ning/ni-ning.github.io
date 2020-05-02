@@ -86,9 +86,9 @@ __all__ = (
 
 #### PoolManager与RequestMethods
 
-![](../../.gitbook/assets/poolmanager.png)
+![](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/poolmanager.png)
 
 #### 主干类的层次结构
 
-![](../../.gitbook/assets/urllib3.png)
+![](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/urllib3.png)
 

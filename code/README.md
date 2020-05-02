@@ -1,6 +1,2 @@
 
-# 简介
-
-- requests
-- urllib3
-- socketserver
+# 源码解析
