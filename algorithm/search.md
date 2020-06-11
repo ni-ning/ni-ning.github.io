@@ -17,13 +17,11 @@ def linear_search(li, value):
     for index, v in enumerate(li):
         if v == value:
             return index
-
     else:
         return -1
 
-
 def binary_search(li, value):
-    left, right = 0, len(li) - 1
+    left, right = 0, len(li) - 1	# left, right维护候选区
     
     while left <= right:
         mid = (left + right) // 2
