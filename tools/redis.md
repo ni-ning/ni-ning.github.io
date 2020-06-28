@@ -4,7 +4,7 @@
 
 ## 相关概念
 
-Redis是一种基于==键值对==的==NoSQL==数据库
+Redis是一种基于键值对的NoSQL数据库
 
 > Redis is an open source(BSD licensed), in-memory data structure store, used as a database, cache and message broker.
 
@@ -334,16 +334,6 @@ exec
 get user_id
 ```
 
-## 主从复制
-
-```
-# 从服务器配置
-slaveof <master-ip> <master-port>
-masterauth <master-password>
-
-# 查看 master slave 信息
-info
-```
 
 
 ## 两种持久化
@@ -365,6 +355,16 @@ Redis执行的命令记录下来，重复执行恢复数据，只允许追加不
 
 ## 发布订阅
 
+## 主从复制
+
+```
+# 从服务器配置
+slaveof <master-ip> <master-port>
+masterauth <master-password>
+
+# 查看 master slave 信息
+info
+```
 
 
 ## 其他数据库
@@ -390,9 +390,13 @@ Redis执行的命令记录下来，重复执行恢复数据，只允许追加不
 - Real Python https://realpython.com/python-redis/#further-reading
 
 
-# Redis源码分析
+# redis-py源码分析
 
+## 基本使用
 
+## 结构图
+
+## 网络连接
 
 
 
