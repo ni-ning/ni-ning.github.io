@@ -236,6 +236,15 @@ zrange z1 0 -1 withscores
 ```
 
 
+| 数据类型 | 可以存储的值 | 操作 |
+| :--: | :--: | :--: |
+| STRING | 字符串、整数或者浮点数 | 对整个字符串或者字符串的其中一部分执行操作</br> 对整数和浮点数执行自增或者自减操作 |
+| LIST | 列表 | 从两端压入或者弹出元素 </br> 对单个或者多个元素进行修剪，</br> 只保留一个范围内的元素 |
+| SET | 无序集合 | 添加、获取、移除单个元素</br> 检查一个元素是否存在于集合中</br> 计算交集、并集、差集</br> 从集合里面随机获取元素 |
+| HASH | 包含键值对的无序散列表 | 添加、获取、移除单个键值对</br> 获取所有键值对</br> 检查某个键是否存在|
+| ZSET | 有序集合 | 添加、获取、删除元素</br> 根据分值范围或者成员来获取元素</br> 计算一个键的排名 |
+
+
 ## 常用命令
 
 ### key-value命令
@@ -335,7 +344,6 @@ get user_id
 ```
 
 
-
 ## 两种持久化
 
 RDB(Redis DataBase)
@@ -354,6 +362,18 @@ Redis执行的命令记录下来，重复执行恢复数据，只允许追加不
 
 
 ## 发布订阅
+
+```
+# 消费者终端1
+127.0.0.1 6379> subscribe tv1 tv2
+
+# 消费者终端2
+127.0.0.1 6379> subscribe tv1
+
+# 生产者终端
+127.0.0.1 6379> publish tv1 'message'
+127.0.0.1 6379> publish tv2 'message'
+```
 
 ## 主从复制
 
@@ -378,7 +398,6 @@ info
 ### 演示实例 排行...
 ### 演示实例 10 0000/s
 
-
 ## 链接地址
 
 - 官方网站 https://redis.io/
@@ -394,7 +413,22 @@ info
 
 ## 基本使用
 
-## 结构图
+### 结构图
+```
+redis
+  |- __init__.py		# 方便导入 Redis, ConnectionPool, from_url, ConnectionError
+  |- _compat.py		 # 兼容性 3.5.x 最后兼容python2
+  |- client.py		  # 客户端类 Redis
+  |- connection.py	  # 连接类 Connection ConnectionPool
+  |- exceptions.py	  # 异常层级类 RedisError
+  |- lock.py		    # 全局锁类 Lock
+  |- sentinel.py	    # 哨兵类 Sentinel
+  |- utils.py		   # 工具函数类
+```
+
+### 演示示例
+
+
 
 ## 网络连接
 
