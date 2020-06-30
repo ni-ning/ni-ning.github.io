@@ -111,8 +111,7 @@ position: absolute;
 - 改变 HTML 样式 `document.getElementById("demo").style.color='red'`
 
 
-
-## ES6
+### ES6
 
 
 
