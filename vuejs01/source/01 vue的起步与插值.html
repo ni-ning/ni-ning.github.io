@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			{{ msg }} <br>
+			{{ 2 }} <br>
+			{{ 'linda' }} <br>
+			{{ {id:1, name: 'tom'} }} <br>
+			{{ getContent() }}
+			{{ msg3 }}
+		</div>
+	
+	<script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			// 数据 驱动 视图 div
+			data:{
+				msg: 'Hello',
+				content: 'Vue',
+				// {{ 不支持渲染标签 }}
+				msg3: '<p>This is p label.</p>'
+			},
+			methods: {
+				getContent(){
+					return this.msg + this.content;
+				}
+			}
+		});
+	</script>
+	</body>
+</html>

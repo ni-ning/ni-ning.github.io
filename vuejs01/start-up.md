@@ -1,0 +1,106 @@
+
+
+## vue学习路线
+
+```
+html/css/js => es6 => vue基础+组件化开发 => 核心插件vue-router和vuex => 源码+大牛
+```
+
+- 框架：类似全家桶，简易DOM体验+发请求+模板引擎+路由功能+数据管理
+
+
+## 网页基础
+
+### html
+
+- html使用标记标签来描述网页 `<标签>`内容`</标签>`
+- 开始标签中可设置属性，表示附加信息，一般以键值对的形式出现，如name='value'
+- html中的预留字符，如< 空格等，想显示在网页中需转换为实体字符
+- url只能使用ASCII字符集，编码使用 % 其后跟随两位的十六进制数来替换非 ASCII 字符，通常使用 + 来替换空格
+
+```
+<h1>标题</h1>
+<p>段落</p>
+<a href='https://www.baidu.com' target='_blank'>超链接</a>
+<img src="logo.png" />  图片
+
+id		定义元素的唯一id
+class	引用一个或多个类名(类名可以样式文件引入)
+style	规定元素的样式
+
+<div>块级元素，用于组合其他html元素的容器</div>
+<span>内联元素，可用作文本的容器</span>
+
+<script>既可以包含脚本预语句，也可以通过src指向外部脚本</script>
+document.getElementById("demo").style.color="#ff0000";
+
+```
+
+
+### css
+
+- css解决内容与表现分离的问题
+- css可以大大提高网页开发效率，如控制多重网页的样式和布局
+- css规则由两部分构成：选择器，以及一条或多条声明
+- 每条声明由一个属性和一个值组成，声明总是以分号结束，以{}括起来
+- 盒子模型：margin border padding content
+
+```
+p {color: blue; font-size: 12px;}
+
+#para1 {color:red; text-align:center;}
+.center {text-align:center;}
+
+
+a:visited {color: red;}
+
+h1,p,div {color: grepp}		# 分组选择器
+p {}			# 为所有p标签指定一个样式
+.marked {}		# 为所有class="marked"的标签指定一个样式
+.marked p {}	# 为所有class="marked"标签内的p标签指定一个样式
+p.marked {}		# 为所有class="marked"的p标签指定一个样式
+
+background-color: gray;
+
+color: red;
+text-align: center;
+text-decoration: none;
+
+font-family: 'Times New Roman';
+font-size: 14px;
+
+height: 14px;		# 元素高度
+line-height: 14px	# 行高
+```
+
+块元素(block)
+- 总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;
+- 宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制
+内联元素(inline)
+- 和相邻的内联元素在同一行;
+
+```
+display: none;		# 可以隐藏某个元素，且隐藏的元素不会占用任何空间
+display:block  		# 显示为块级元素
+display:inline  	# 显示为内联元素
+display:inline-block	# 显示为内联块元素，表现为同行显示并可修改宽高内外边距等属性
+```
+
+## es6
+
+
+
+
+## 指令
+
+v-xxx形式，封装了一些DOM行为，结合属性作为一个暗号，数据驱动视图
+
+- v-text 和 {{}} 一样，都是插入值，直接渲染 innerText
+- v-html 既能插入值 又能插入标签 innerHTML
+- v-show 本质 display=none，无论显示还是隐藏都渲染开销，用于频繁切换的场景
+- v-if v-else 本质是否渲染标签，用户切换较少的场景
+
+
+
+
+
