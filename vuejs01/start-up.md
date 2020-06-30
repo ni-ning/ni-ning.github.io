@@ -110,7 +110,31 @@ position: absolute;
 - 改变 HTML 图像 `document.getElementById("demo").src='log.png'`
 - 改变 HTML 样式 `document.getElementById("demo").style.color='red'`
 
+事件
+- HTML 事件是发生在 HTML 元素上的事情
+- HTML 事件可以是浏览器行为，也可以是用户行为
+- 事件发生时，可以做些事情，如执行一段 JavaScript 代码 `<some-HTML-element some-event='JavaScript 代码'>`
+```
+- 页面加载时触发事件
+- 页面关闭时触发事件
+- 用户点击按钮执行动作
+- 验证用户输入内容的合法性
+- ...
+```
 
+DOM
+- 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）
+- 通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML
+```
+- JavaScript 能够改变页面中的所有 HTML 元素
+- JavaScript 能够改变页面中的所有 HTML 属性
+- JavaScript 能够改变页面中的所有 CSS 样式
+- JavaScript 能够对页面中的所有事件做出反应
+```
+
+
+其他
+- void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值，如javascript:void(0)
 ### ES6
 
 
