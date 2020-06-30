@@ -1,6 +1,6 @@
 
 
-## vue学习路线
+## Vue学习路线
 
 ```
 html/css/js => es6 => vue基础+组件化开发 => 核心插件vue-router和vuex => 源码+大牛
@@ -11,7 +11,7 @@ html/css/js => es6 => vue基础+组件化开发 => 核心插件vue-router和vuex
 
 ## 网页基础
 
-### html
+### HTML
 
 - html使用标记标签来描述网页 `<标签>`内容`</标签>`
 - 开始标签中可设置属性，表示附加信息，一般以键值对的形式出现，如name='value'
@@ -37,7 +37,7 @@ document.getElementById("demo").style.color="#ff0000";
 ```
 
 
-### css
+### CSS
 
 - css解决内容与表现分离的问题
 - css可以大大提高网页开发效率，如控制多重网页的样式和布局
@@ -86,7 +86,33 @@ display:inline  	# 显示为内联元素
 display:inline-block	# 显示为内联块元素，表现为同行显示并可修改宽高内外边距等属性
 ```
 
-## es6
+定位元素 position
+```
+position: fixed;
+position: relative;
+position: absolute;
+```
+
+浮动 float 会使元素向左或向右移动，其周围的元素也会重新排列
+
+对齐
+```
+元素水平居中，如有宽度的div，可设置 margin: auto
+元素中文本居中对齐 text-align: center;
+图片居中  img {display:block; margin:auto;}
+```
+
+### JavaScript
+
+- 可插入到 HTML 页面，由现代浏览器执行
+- 对事件的反映 `<button type="button" onclick="alert('欢迎!')">点我!</button>`
+- 改变 HTML 内容 `document.getElementById("demo").innerHTML='Hello Javascript'`
+- 改变 HTML 图像 `document.getElementById("demo").src='log.png'`
+- 改变 HTML 样式 `document.getElementById("demo").style.color='red'`
+
+
+
+## ES6
 
 
 
