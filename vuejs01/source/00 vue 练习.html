@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue练习</title>
+		<script src="./vue.js"></script>
+		<script src="./axios.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				const vm = new Vue({
+					el: "#app",
+					data: {
+						msg: "please input ..",
+						resp: {}
+					},
+					methods: {
+						changeHandler(e){
+							this.msg = e.target.value
+						},
+						send(){
+							console.log('send');
+							axios.get('https://api.github.com')
+							.then(resp=>{
+								// console.log(resp.data);
+								this.resp = resp.data;
+							}).catch(err=>{
+								console.log(err);
+							})
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" :value="msg" @input="changeHandler($event)" />
+			<p>Input: {{ msg }}</p>
+			<hr >
+			
+			<button type="button" @click="send()">发送</button>
+			<div>
+				<div v-for="(value, key) in resp">{{key}}={{value}}</div>
+			</div>
+		</div>
+	</body>
+</html>

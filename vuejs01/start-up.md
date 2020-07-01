@@ -135,9 +135,50 @@ DOM
 
 其他
 - void 是 JavaScript 中非常重要的关键字，该操作符指定要计算一个表达式但是不返回值，如javascript:void(0)
+
 ### ES6
 
+let
+- 属于局部作用域
+- 没有覆盖现象
 
+const
+- 声明常量，一旦声明不可修改
+- 属于局部作用域
+
+模板字符串
+- `I am ${name}. `
+
+箭头函数
+- (a, b) => {return a + b;}
+- 带来的问题1：this的指向发生的变化
+- 带来的问题2：arguments不能使用
+
+对象的单体模式
+
+	fav(){
+		console.log(111);
+	}
+	
+	等价于
+	function fav(){
+		console.log(111);
+	}
+	等价于
+	var fav = function(){
+		console.log(111);
+	}
+
+
+
+直接在bar.html全局标签script中使用 require('lodash')会报错，node bar.js倒是可以，涉及到模块化开发
+![](images/1.jpg)
+
+	# bar.js
+	var lodash = require('lodash');
+
+	var output = lodash.without([1, 2, 3], 1);
+	console.log(output);
 
 
 ## 指令
@@ -148,7 +189,7 @@ v-xxx形式，封装了一些DOM行为，结合属性作为一个暗号，数据
 - v-html 既能插入值 又能插入标签 innerHTML
 - v-show 本质 display=none，无论显示还是隐藏都渲染开销，用于频繁切换的场景
 - v-if v-else 本质是否渲染标签，用户切换较少的场景
-
+- v-bind 操作标签属性值，可简写:
 
 
 

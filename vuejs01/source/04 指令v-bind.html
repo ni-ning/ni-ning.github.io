@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			a {text-decoration: none;}
+			.active {color: red;}
+		</style>
+		<script type="text/javascript" src="./vue.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload = function(){
+				const vm = new Vue({
+					el: '#app',
+					data: {
+						res: {
+							name: '百度',
+							url: 'https://www.baidu.com',
+							title: '百度一下'
+						},
+						imgSrc: '../images/logo.png',
+						isActive: true
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- v-bind基本用法 -->
+			<a v-bind:href="res.url" target="_blank">{{res.name}}</a> <br/>
+			<!-- 可省略简写: -->
+			<img :src="imgSrc" :alt="res.title">
+			<!-- class属性用法 -->
+			<div :class="{active: isActive}">v-bind的class用法</div>
+			<!-- 自定义属性 -->
+			<div v-bind:aaa="res.name"></div>
+		</div>
+		
+		
+<!-- 		<script type="text/javascript" src="./vue.js">
+		</script>
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					res: {
+						name: '百度',
+						url: 'https://www.baidu.com',
+						title: '百度一下'
+					},
+					imgSrc: '../images/logo.png',
+					isActive: true
+				}
+			});
+		</script> -->
+	</body>
+</html>
