@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 3. 使用子组件 -->
+			<App></App>
+		</div>
+		
+		<script type="text/javascript" src="./vue.js">
+		</script>
+		<script type="text/javascript">
+			// App组件 = html+css+js
+			
+			// 使用局部组件打油诗：建子 挂子 使用子
+			// 1. 创建组件
+			// 注意：在组件中这个data必须是一个函数，返回一个对象
+			const App = {
+				data(){
+					return {
+						msg: '我是App组件'
+					}
+				},
+				template: `
+				<div>
+					<h3>{{ msg }}</h3>
+					<button @click='handleButton()'>button</button>
+				</div>
+				`,
+				methods: {
+					handleButton(){
+						this.msg = '学习局部组件';
+					}
+				}
+			}
+			
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					
+				},
+				components: {
+					// 2. 挂载组件
+					App
+				}
+				
+			});
+		</script>
+	</body>
+</html>

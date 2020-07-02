@@ -189,7 +189,14 @@ v-xxx形式，封装了一些DOM行为，结合属性作为一个暗号，数据
 - v-html 既能插入值 又能插入标签 innerHTML
 - v-show 本质 display=none，无论显示还是隐藏都渲染开销，用于频繁切换的场景
 - v-if v-else 本质是否渲染标签，用户切换较少的场景
-- v-bind 操作标签属性值，可简写:
+- v-bind 操作标签属性值 如v-bind:src，可简写 :src
+- v-on 绑定元素事件 如v-on:click='handle()', 可简写 @on:click='handle()'
+- 事件对象 $event e.target.value 事件修饰符 @on:click.stop='handle()'
+- v-for 数组或对象遍历  v-for="item in menus" :key="item.id"
+- v-model 数据双向绑定 input 系列 重点关注 v-model对应的数据类型
+- watch 监控 key是属于data对象的属性名 value函数为监控的行为 (newValue, oldValue)
+- computed 非常类似@property 逻辑封装 有set和get之分
+- filters 过滤器 如 "20.00$"
 
 
 

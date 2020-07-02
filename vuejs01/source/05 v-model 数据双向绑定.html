@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				const vm = new Vue({
+					el: "#app",
+					data: {
+						msg: '',
+						checked: false,
+						names: []
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<!-- v-model自动识别为字符串 -->
+			<input type="text" v-model="msg"/>
+			<p>{{ msg }}</p>
+			<hr >
+			
+			<!-- v-model自动识别为boolean -->
+			<!-- 复选框-单选 -->
+			<label for="chk">{{ checked }}</label>
+			<input type="checkbox" id="chk" v-model="checked" />
+			<hr >
+			
+			<!-- v-model自动识别为数组 -->
+			<!-- 复选框-多选 -->
+			<div id="box">
+				<label for="name1">黄瓜</label>
+				<input type="checkbox" id="name1" value="黄瓜" v-model="names"/>
+				
+				<label for="name2">西红柿</label>
+				<input type="checkbox" id="name2" value="西红柿" v-model="names"/>
+				
+				<label for="name3">茄子</label>
+				<input type="checkbox" id="name3" value="茄子" v-model="names"/>
+			</div>
+			<span>选中的蔬菜：{{ names }}</span>
+		</div>
+		
+		
+	</body>
+</html>

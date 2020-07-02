@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.content {
+				width: 30%;
+				margin: auto;
+			}
+			ul {
+				list-style: none;
+			}
+			ul li {
+				margin: 20px 20px;
+				padding: 10px 5px;
+				border-radius: 2px;
+			}
+			ul li.active {
+				background-color: grey;
+			}
+			
+		</style>
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				const musicData = [
+					{
+						id: 1,
+						name: "卡农钢琴曲",
+						author: "卡罗拉",
+						songSrc: "./music/卡农钢琴曲.mp3"
+					},
+					{
+						id: 2,
+						name: "Text01",
+						author: "未知1",
+						songSrc: "./music/Text01.mp3"
+					},
+					{
+						id: 3,
+						name: "Text02",
+						author: "未知2",
+						songSrc: "./music/Text02.mp3"
+					},
+					{
+						id: 4,
+						name: "Text03",
+						author: "未知3",
+						songSrc: "./music/Text03.mp3"
+					}
+				]
+				
+				const vm = new Vue({
+					el: "#app",
+					data:{
+						musicData,
+						currentIndex: 0
+					},
+					computed:{
+						getCurrentSongSrc(){
+							return this.musicData[this.currentIndex].songSrc
+						}
+					},
+					methods: {
+						handleClick(index){
+							this.currentIndex = index;
+						},
+						handleEnded(){
+							this.handleNext();
+						},
+						handleNext(){
+							this.currentIndex++;
+							if(this.currentIndex === this.musicData.length){
+								this.currentIndex = 0;
+							}
+						},
+						handlePre(){
+							if(this.currentIndex === 0){
+								this.currentIndex = this.musicData.length;
+							}
+							this.currentIndex--;
+						}
+					}
+					
+				});
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="content">
+				<audio :src="getCurrentSongSrc"  controls autoplay @ended="handleEnded"> </audio>
+					<ul>
+						<li :class="{active: currentIndex === index}" v-for="(item, index) in musicData" :key="item.id" @click="handleClick(index)" >
+							<h3>{{item.id}} - 歌名：{{item.name}}</h3>
+							<p>{{item.author}}</p>
+						</li>
+					</ul>
+					
+					<button type="button" @click="handlePre">上一首</button>
+					<button type="button" @click="handleNext">下一首</button>
+				</div>
+			</div>
+		
+	</body>
+</html>
