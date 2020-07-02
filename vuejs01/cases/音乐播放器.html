@@ -93,20 +93,23 @@
 		</script>
 	</head>
 	<body>
+		
 		<div id="app">
 			<div class="content">
 				<audio :src="getCurrentSongSrc"  controls autoplay @ended="handleEnded"> </audio>
-					<ul>
-						<li :class="{active: currentIndex === index}" v-for="(item, index) in musicData" :key="item.id" @click="handleClick(index)" >
-							<h3>{{item.id}} - 歌名：{{item.name}}</h3>
-							<p>{{item.author}}</p>
-						</li>
-					</ul>
+				<ul>
+					<li :class="{active: currentIndex === index}" v-for="(item, index) in musicData" 
+					:key="item.id" @click="handleClick(index)" >
 					
-					<button type="button" @click="handlePre">上一首</button>
-					<button type="button" @click="handleNext">下一首</button>
-				</div>
+						<h3>{{item.id}} - 歌名：{{item.name}}</h3>
+						<p>{{item.author}}</p>
+					</li>
+				</ul>
+				
+				<button type="button" @click="handlePre">上一首</button>
+				<button type="button" @click="handleNext">下一首</button>
 			</div>
+		</div>
 		
 	</body>
 </html>
