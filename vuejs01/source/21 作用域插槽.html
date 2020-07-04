@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				
+				const TodoList = {
+					data(){
+						return {
+							
+						}
+					},
+					props: {
+						todos: Array,
+						defaultValue: []
+					},
+					template: `
+						<ul>
+							<li v-for="item in todos" :key="item.id">
+								<slot :item="item">
+								</slot>
+								{{item.title}}
+							</li>
+						</ul>
+					`
+				}
+				
+				
+				const App = {
+					data(){
+						return {
+							todoList: [
+								{
+									id: 1,
+									title: '吃饭',
+									isComplete: true
+								},
+								{
+									id: 2,
+									title: '睡觉',
+									isComplete: false
+								},
+								{
+									id: 3,
+									title: '打豆豆',
+									isComplete: false
+								}
+							]
+						}
+					},
+					
+					template: `
+						<div>
+							<TodoList :todos="todoList">
+								<template v-slot="data">
+									<input type="checkbox" v-model="data.item.isComplete" />
+								</template>
+							</TodoList>
+						</div>
+					
+					`,
+					components:{
+						TodoList
+					}
+				}
+				
+				const vm = new Vue({
+					el: "#app",
+					components:{
+						App
+					}
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<App></App>
+		</div>
+	</body>
+</html>

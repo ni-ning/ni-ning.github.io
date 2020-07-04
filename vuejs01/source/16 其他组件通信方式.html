@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				const B = {
+					template: `
+						<div>组件B: {{msg}}</div>
+					`,
+					inject: ['msg']
+				}
+				
+				
+				const A = {
+					template:`
+						<div style="background-color: gray">
+							组件A，内部包含：<B></B>
+						</div>
+					`,
+					components: {
+						B
+					}
+				}
+				
+				
+				
+				const App = {
+					template: `
+						<div>
+							<p>入口组件：App</p>
+							<A></A>
+						</div>
+					`,
+					components:{
+						A
+					},
+					provide(){
+						return {
+							msg : '顶层数据'
+						}
+					}
+				}
+				
+				const vm = new Vue({
+					el: "#app",
+					components:{
+						App
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<App></App>
+		</div>
+	</body>
+</html>

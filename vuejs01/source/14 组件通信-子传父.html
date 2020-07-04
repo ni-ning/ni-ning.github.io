@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				Vue.component('Child', {
+					template: `
+						<div>
+							<p>子组件：Child</p>
+							<input type="text" @input="handleInput" />
+						</div>
+					`,
+					methods: {
+						handleInput(e){
+							const val = e.target.value;
+							this.$emit('inputHandler', val);
+						}
+					}
+				})
+				
+				const App = {
+					data(){
+						return {
+							msg: ''
+						}
+					},
+					methods: {
+						input1(value){
+							console.log(value);
+							this.msg = value;
+						}
+					},
+					template: `
+					<div>
+						<div>父组件：App，显示来自子组件的值：{{msg}}</div>
+						<Child @inputHandler="input1"></Child>
+					</div>
+					`
+				}
+				
+				
+				const vm = new Vue({
+					el: "#app",
+					data: {
+						
+					},
+					components: {
+						App
+					}
+				});
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div id="app">
+			<App></App>
+		</div>
+		
+	</body>
+</html>

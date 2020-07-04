@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			Vue.component('Vheader', {
+				template: `
+					<div>全局组件-导航组件</div>
+				`
+			})
+			Vue.component('Vaside', {
+				template: `
+					<div>全局组件-侧边栏组件</div>
+				`
+			})
+			
+			
+			window.onload = function(){
+				
+				
+				const Vbutton = {
+					template: `
+					<button>按钮</button>
+					`
+				}
+				
+				
+				const Vcontent = {
+					template: `
+					<div>
+						<div>App-局部内容组件</div>
+						<Vbutton></Vbutton>
+						<Vbutton></Vbutton>
+						<Vbutton></Vbutton>
+						<Vbutton></Vbutton>
+					</div>
+					
+					`,
+					components: {
+						Vbutton
+					}
+				}
+				
+				
+				const App = {
+					data(){
+						return {
+							msg: '我是App组件-函数返回值'
+						}
+					},
+					template: `
+					<div>
+						<Vheader></Vheader>
+						<Vaside></Vaside>
+						<Vcontent></Vcontent>
+					</div>
+					`,
+					components: {
+						Vcontent
+					}
+				}
+				
+				
+				const vm = new Vue({
+					el: "#app",
+					components: {
+						App
+					}
+				})
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<App></App>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="./vue.js"></script>
+		<script type="text/javascript">
+			
+			Vue.component('Child', {
+				template:`
+				<div style="background-color:#E1E2E2">
+					<p>子组件：Child</p>
+					<p>视图层为Child，数据源为：{{ childData }}</p>
+				</div>
+				`,
+				props:['childData']
+			})
+			
+			window.onload = function(){
+				const App = {
+					data(){
+						return {
+							'msg': '来自父组件App的值 msg'
+						}
+					},
+					template: `
+					<div>
+						<h1>入口组件: App</h1>
+						<Child :childData="msg"></Child>
+					</div>
+					`
+				}
+				const vm = new Vue({
+					el: "#app",
+					components:{
+						App
+					}
+				});
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<App></App>
+		</div>
+	</body>
+</html>

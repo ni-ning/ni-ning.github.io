@@ -39,6 +39,8 @@
 
 ## 简易前端
 - [vue入门](vuejs01/start-up)
+- [vue组件化开发](vuejs01/component)
+- [vue单文件组件](vuejs01/cli)
 
 
 ## 开源项目
