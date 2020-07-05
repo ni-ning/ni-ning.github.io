@@ -7,7 +7,8 @@
         <li v-for="(item, index) in cartList" :key="item.id">
             <h3>{{item.title}}</h3>
             <p>{{item.price}}</p>
-            <button @click="addCart(index)">添加到购物车</button>
+            <el-button type="primary" @click="addCart(index)">添加到购物车</el-button>
+            <!-- <button @click="addCart(index)">添加到购物车</button> -->
         </li>
     </ul>
 
@@ -79,5 +80,32 @@ li {
   background-color: #fbfbfb;
   padding: 20px;
 }
+
+.el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
 
 </style>
