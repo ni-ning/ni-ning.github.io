@@ -18,7 +18,7 @@
 
 <style scoped>
 	p {
-		fond-size: 20px;
+		font-size: 20px;
 		text-align: center;
 		color: red;
 	}
