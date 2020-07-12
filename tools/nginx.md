@@ -3,7 +3,7 @@ description: 测试环境  docker ubuntu:20.04
 
 # Web服务-Nginx
 
-### 一、Nginx介绍
+## 一、Nginx介绍
 
 * Web服务器  反向代理服务器  邮件代理服务器
 * 轻量级的Web服务器  删减优化
@@ -11,7 +11,7 @@ description: 测试环境  docker ubuntu:20.04
 * [http://nginx.org](http://nginx.org)
 * [http://www.nginx.cn](http://www.nginx.cn/doc/index.html)
 
-### 二、Nginx 安装
+## 二、Nginx 安装
 
 ```
 apt-get update
@@ -26,7 +26,7 @@ elinks http://127.0.0.1 --dump
 ```
 
 
-### 三、Nginx 配置文件
+## 三、Nginx 配置文件
 
 配置文件 `/etc/nginx/nginx.conf` 相当于变量文件，甚至可以认为是脚本文件，nginx程序就是解释器
 
@@ -62,7 +62,7 @@ http {
 - 每个指令必须有分号结束
 - $开头表示变量，nginx提供很多内置变量
 
-### 四、默认网站
+## 四、默认网站
 
 nginx配置文件中只有一个server的时候, 该server被nginx认为是默认网站, 所有发给服务器80端口的数据都会默认给该server
 
@@ -81,7 +81,7 @@ server {
 }
 ```
 
-#### **1. 目录访问控制**
+**1. 目录访问控制**
 
 ```text
 cd html
@@ -144,7 +144,7 @@ location /images/ {
 }
 ```
 
-### 五、虚拟主机
+## 五、虚拟主机
 
 把一台物理服务器划分为多个"虚拟"的服务器, 每一个虚拟主机都可以有独立的域名和独立的目录
 
@@ -225,7 +225,7 @@ server {
 }
 ```
 
-### 六、反向代理
+## 六、反向代理
 
 正向代理: 小区宽带 局域网 代用户上网  
 反向代理: 代理服务器
@@ -297,7 +297,7 @@ server {
 }
 ```
 
-### 七、限速
+## 七、限速
 
 防止用户海量请求, 如DDOS防御  
 保护磁盘IO, 如下载场景
@@ -329,7 +329,7 @@ http {
 }
 ```
 
-### 八、URL重写
+## 八、URL重写
 
 rewrite几乎是所有web产品必备技能  
 nginx服务器rewrite功能实现依赖pcre\(Perl Compatible Regular Expression\)
@@ -365,7 +365,7 @@ permanent  # 返回301永久重定向, 搜索引擎以新网址排名
 rewrite ^/$ http://ni-ning.cn permanent;
 ```
 
-### 九、优化
+## 九、优化
 
 软件安装的时候，以硬件最小化进行安装，需要优化;  
 提高用户体验
@@ -411,7 +411,7 @@ location ~* \.(png|gif)$ {
 
 
 # Web集群
-### 基本模型
+## 基本模型
 
 完成一次请求的步骤
 - 用户发起请求
@@ -429,7 +429,7 @@ location ~* \.(png|gif)$ {
 - 分发器：nginx
 - 数据服务器：Web服务器器
 
-### Nignx集群
+## Nignx集群
 
 在该集群中，nginx扮演分发器角色，接受请求、分发请求、响应请求
 
@@ -485,7 +485,7 @@ server {
 - 测试 elinks http://192.168.0.10 --dump
 
 
-### 分发算法
+## 分发算法
 
 顺序轮询
 ```
@@ -516,7 +516,7 @@ upstream web {
 其他自定义条件轮询
 
 
-### 高可用Nginx集群
+## 高可用Nginx集群
 
 业务服务器出现宕机时，分发器可以自动识别，从分发列表中剔除即可。如何保证分发器高可用呢，还是同样的逻辑，多台服务
 
