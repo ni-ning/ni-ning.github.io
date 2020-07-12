@@ -421,7 +421,9 @@ location ~* \.(png|gif)$ {
 - 服务器处理请求(压力最大)
 - 服务器响应请求
 
-如何解决单点故障，单台服务器性能瓶颈呢？当然是多太了
+如何解决单点故障，单台服务器性能瓶颈呢？当然是多台了
+
+![iamge](https://raw.githubusercontent.com/ni-ning/ni-ning.github.io/master/images/web.jpg)
 
 
 组成要素
