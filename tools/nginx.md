@@ -411,3 +411,115 @@ location ~* \.(png|gif)$ {
 
 
 # Web集群
+
+
+### 基本模型
+
+完成一次请求的步骤
+- 用户发起请求
+- 服务器接受请求
+- 服务器处理请求(压力最大)
+- 服务器响应请求
+
+如何解决单点故障，单台服务器性能瓶颈呢？当然是多太了
+
+
+组成要素
+- VIP：一个虚IP地址
+- 分发器：nginx
+- 数据服务器：Web服务器器
+
+### Nignx集群
+
+在该集群中，nginx扮演分发器角色，接受请求、分发请求、响应请求
+
+功能模块
+- ngx_http_upstream_module 基于应用层分发模块(常用)
+- ngx_stream_core_module 基于传输层分发模块
+
+集群原理：虚拟主机+反向代理+upstream分发模块组成
+- 虚拟主机：接受和响应请求
+- 反向代理：带用户去数据服务器拿数据
+- upstream：告诉nginx去哪个数据服务器拿数据
+
+基本配置
+
+web01服务器
+```
+server {
+        listen 80;
+        server 192.168.0.11;
+        location / {
+            root /code/dist/web01;
+            index index.html index.htm;
+        }
+```
+
+web02服务器
+```
+server {
+        listen 80;
+        server 192.168.0.12;
+        location / {
+            root /code/dist/web02;
+            index index.html index.htm;
+        }
+```
+
+分发器配置
+
+```
+upstream web {
+    server 192.168.0.11;
+    server 192.168.0.12;
+}
+
+server {
+        listen 80;
+        server 192.168.0.10;
+        location / {
+            proxy_pass http://web;
+        }
+```
+
+- 测试 elinks http://192.168.0.10 --dump
+
+
+### 分发算法
+
+顺序轮询
+```
+upstream web {
+    server 192.168.0.11;
+    server 192.168.0.12;
+}
+```
+
+
+权重轮询
+```
+upstream web {
+    server 192.168.0.11 1;
+    server 192.168.0.12 2;
+}
+```
+
+Hash轮询
+```
+upstream web {
+    ip_hash;
+    server 192.168.0.11;
+    server 192.168.0.12;
+}
+```
+
+其他自定义条件轮询
+
+
+### 高可用Nginx集群
+
+业务服务器出现宕机时，分发器可以自动识别，从分发列表中剔除即可。如何保证分发器高可用呢，还是同样的逻辑，多台服务
+
+- keepalived
+
+
