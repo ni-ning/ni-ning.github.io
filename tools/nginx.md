@@ -1,12 +1,11 @@
----
-description: 系统环境  Ubuntu 18.04.2 LTS
----
+
+description: 测试环境  docker ubuntu:20.04
 
 # Web服务-Nginx
 
 ### 一、Nginx介绍
 
-* Web服务器  反向代理服务器   邮件代理服务器
+* Web服务器  反向代理服务器  邮件代理服务器
 * 轻量级的Web服务器  删减优化
 * 延伸版本 Tengine\(淘宝\), OpenResty\(章亦春\)
 * [http://nginx.org](http://nginx.org)
@@ -14,107 +13,54 @@ description: 系统环境  Ubuntu 18.04.2 LTS
 
 ### 二、Nginx 安装
 
-#### **1. 获得软件**
-
-sudo wget [http://nginx.org/download/nginx-1.17.1.tar.gz](http://nginx.org/download/nginx-1.17.1.tar.gz) -P /usr/src
-
-**2. 安装前准备**
-
-```bash
-sudo tar zxvf nginx-1.17.1.tar.gz
-cd nginx-1.17.1/
-sudo apt-get install gcc
-sudo apt-get install libpcre3 libpcre3-dev
-sudo apt-get install zlib1g-dev
-sudo apt-get install openssl libssl-dev
 ```
+apt-get update
+apt-get install nginx
+vim /etc/nginx/nginx.conf
 
-**3. 配置**
+service nginx start
 
-* 检查环境是否满足安装条件 依赖解决
-* 指定安装方式 如配置文件, 命令文件等各类文件放在哪里 开启模块功能\(内置模块 三方模块\)
-* 指定软件安装在哪里
-
-```bash
-sudo ./configure --prefix=/usr/local/nginx
-```
-
-结果汇总
-
-```text
-Configuration summary
-  + using system PCRE library
-  + OpenSSL library is not used
-  + using system zlib library
-
-  nginx path prefix: "/usr/local/nginx"
-  nginx binary file: "/usr/local/nginx/sbin/nginx"
-  nginx modules path: "/usr/local/nginx/modules"
-  nginx configuration prefix: "/usr/local/nginx/conf"
-  nginx configuration file: "/usr/local/nginx/conf/nginx.conf"
-  nginx pid file: "/usr/local/nginx/logs/nginx.pid"
-  nginx error log file: "/usr/local/nginx/logs/error.log"
-  nginx http access log file: "/usr/local/nginx/logs/access.log"
-  nginx http client request body temporary files: "client_body_temp"
-  nginx http proxy temporary files: "proxy_temp"
-  nginx http fastcgi temporary files: "fastcgi_temp"
-  nginx http uwsgi temporary files: "uwsgi_temp"
-  nginx http scgi temporary files: "scgi_temp"
-```
-
-**4. 编译**
-
-使用gcc将源码生成可执行程序
-
-```bash
-sudo make -j4
-```
-
-**5. 安装**
-
-```bash
-sudo make install
-```
-
-**6. 启动**
-
-```bash
-sudo /usr/local/nginx/sbin/nginx
-```
-
-**7. 验证**
-
-```bash
-sudo lsof -i :80
-sudo netstat -ntpl
-```
-
-**8. 浏览器测试**
-
-```bash
+lsof -i :80
+netstat -plnt
 elinks http://127.0.0.1 --dump
 ```
 
-### 三、Nginx 配置文件详解
 
-配置文件相当于变量文件
+### 三、Nginx 配置文件
 
-/usr/local/nginx/conf/nginx.conf
-
-```text
-#user nobody;          --> 启动子进程默认用户, 主进程一般是root
-worker_processes 1;    -->
-```
-
-**相关命令**
+配置文件 `/etc/nginx/nginx.conf` 相当于变量文件，甚至可以认为是脚本文件，nginx程序就是解释器
 
 ```text
-sudo lsof -i :80
-sudo useradd -s /sbin/nologin -r www
-sudo killall nginx
-```
+# user nobody;         --> 启动子进程默认用户, 主进程一般是root，可添加只用于启动程序的系统账户 useradd -s /sbin/nologin -r www
+worker_processes 2;    --> ps aux | grep nginx 可以看出有2个工作进程
+pid /run/nginx.pid;    --> 主进程 pid文件
+include /etc/nginx/modules-enabled/*.conf;   --> 支持导入语法
 
-[https://www.cnblogs.com/ivy-zheng/p/10991915.html](https://www.cnblogs.com/ivy-zheng/p/10991915.html)
+events {               --> 网络配置连接相关
+    worker_connections  1024; 
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    # include /etc/nginx/conf.d/*.conf;   --> 支持导入 server段 可配置多个虚拟主机
+    server {
+        listen 80;
+        server example.com;               --> 需域名服务商申请和配置解析
+        location / {
+            root /code/dist/deep-ocean;
+            index index.html index.htm;
+        }
+    }
+}
+```
+- nginx配置分区域块：全局块、events块、http块，其中http->sever块，server->location块
+- 每个指令必须有分号结束
+- $开头表示变量，nginx提供很多内置变量
 
 ### 四、默认网站
 
@@ -197,8 +143,6 @@ location /images/ {
     }
 }
 ```
-
-**4. 日志截断**
 
 ### 五、虚拟主机
 
@@ -465,3 +409,5 @@ location ~* \.(png|gif)$ {
 }
 ```
 
+
+# Web集群
