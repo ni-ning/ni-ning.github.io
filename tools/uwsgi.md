@@ -82,7 +82,7 @@ wsgi = gezi.wsgi
 # 无需关闭主socket的情况下优雅地重启
 master = true
 
-# 启动运用现成
+# 启动运用线程
 enable-threads = true
 
 # 请求头的最大的大小

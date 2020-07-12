@@ -495,7 +495,6 @@ upstream web {
 }
 ```
 
-
 权重轮询
 ```
 upstream web {
