@@ -522,3 +522,8 @@ upstream web {
 - keepalived
 
 
+
+## 参考链接
+- [一文理清 nginx 中的 location 配置 (系列一)](https://segmentfault.com/a/1190000022315733)
+- [一文理清 nginx 中的 rewrite 配置 (系列二)](https://segmentfault.com/a/1190000022407797)
+
