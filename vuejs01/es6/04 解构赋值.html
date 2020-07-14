@@ -7,7 +7,19 @@
 </head>
 <body>
     <script>
+        const person = {
+            name: 'linda',
+            age: 20,
+            hobby: ['swimming', 'running', 'shoting']
+        };
 
+        // const {name, hobby} = person;
+        // console.log(name);
+        // console.log(hobby);
+
+        const {name, ...keys} = person;
+        console.log(name);
+        console.log(keys);
 
     </script>
 </body>
