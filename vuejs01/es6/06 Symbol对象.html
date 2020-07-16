@@ -7,16 +7,15 @@
 </head>
 <body>
     <script>
+        // 表示独一无二的值
         const name1 = Symbol('name');
         const name2 = Symbol('name');
 
-        console.log(name1 === name2);
+        console.log(name1 === name2);  // 独一无二，false
 
         const name3 = 'name';
         const name4 = 'name';
-        console.log(name3 === name4);
-
-        
+        console.log(name3 === name4);  // 类型和值一样就行，true
 
     </script>
 </body>

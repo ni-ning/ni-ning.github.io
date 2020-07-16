@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6 简写操作
+        // ES6 直接写入变量和函数，作为对象的属性和方法
+        const name = 'linda';
+        const age = 20;
+        const hobby = ['swimming', 'running', 'shotting']
+
+        const person = {
+            name,  // 等价于 name: name
+            age,
+            hobby,
+            getRun(){
+                console.log('into getRun...');
+                return 'running'
+            }
+        }
+
+        console.log(person);
+        console.log(person.getRun());
+        
+        const add = (x, y)=>{
+            return {x, y}
+        }
+        console.log(add);
+        console.log(add(100, 200));
+
+        let car = {
+            wheel: 4,
+            set(newVal){
+                if(newVal < this.wheel){
+                    throw new Error('轮子数太少了！');
+                }
+                this.wheel = newVal;
+            },
+            get(){
+                return this.wheel;
+            }
+        }
+        car.set(10);
+        console.log(car.get());
+
+        // 对象表达式
+        const obj = {};
+        obj.isShow = true;  // 命名比较规范
+
+        obj['love '+name] = 'lalala';  // 命名比较随意
+        console.log(obj);
+        console.log(obj.isShow);
+        console.log(obj['love linda']);
+
+        
+        const obj1 = {
+            ['love' + name]: 'lindadada',
+            ['f' + name](){
+                console.log(this);
+            }
+        }
+
+        // 对象的方法
+        // is() 等价于 === 比较两个值是否严格相等，由于 === 不是非常严谨
+        console.log(NaN === NaN);  // false
+        console.log(Object.is(NaN, NaN));  // true
+        
+        // 对象的合并 - 返回新对象
+        const a = {name:'linda', age: 20};
+        const b = {sex: 'female'};
+        const o = Object.assign({}, a, b);
+        console.log(o);
+        a.name = 'catherine';
+        console.log(o);  // 还是linda，说明 o 是 彻底新对象
+
+    </script>
+</body>
+</html>
