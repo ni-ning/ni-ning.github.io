@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        // 数组的 from 方法，将伪数组转换为真正数组
+        function add(){
+            console.log(arguments);
+
+            let arr = Array.from(arguments);
+            console.log(arr);
+        }
+        add(1,2,3);
+
+        let lis = document.querySelectorAll('li');
+        console.log(lis);
+
+        // 两种方式转换为数组
+        console.log(Array.from(lis));
+        console.log([...lis]);
+
+        // from() 还可以接受第二个参数，用来对每个元素进行处理，类似map
+        let liContents = Array.from(lis, ele=>ele.textContent);
+        console.log(liContents);
+
+
+        // of() 方法，将一组值 转换成数组
+        console.log(Array.of(3, 4, 10, true, [1,2], {id:1}));
+
+        // find() 和 findIndex() 方法
+        // find 查找到符合条件的第一个元素值,接受回调判断函数
+        let arr2 = [1, -2, 3, 2, 4];
+        console.log(arr2.find(n => n < 0));
+
+        // findIndex 返回索引值
+        console.log(arr2.findIndex(n => n < 0));
+
+        // 遍历相关操作
+        // entries() keys() values() 返回一个遍历器 可以使用for...of 进行遍历
+        let arr3 = ['a', 'b', 'c', 'd'];
+        console.log(arr3.keys());
+        console.log(arr3.values());
+        console.log(arr3.entries());
+
+        for(let index of arr3.keys()){
+            console.log(index);
+        }
+        for(let element of arr3.values()){
+            console.log(element);
+        }
+        console.log('----------------------------');
+        for(let[index, element] of arr3.entries()){
+            console.log(index, element);
+        }
+        
+        let letters = ['a', 'b', 'c'];
+        let it = letters.entries();
+        console.log(it.next().value);
+        console.log(it.next().value);
+        console.log(it.next().value);
+
+        // includes() 类似 python in 返回 true or false
+        console.log(letters.includes('a'));
+        console.log(letters.includes('d'));
+
+    </script>
+</body>
+</html>
