@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- script src=".." 方式为同步加载，当文件较大时浏览器端会出现白屏 -->
+    <!-- <script src=""></script> -->
+
+    <script type='module'>
+        import {name, age, practiceDance} from './modules/index.js'
+        import defaultObj from './modules/index.js'
+        import * as m from './modules/index.js'
+
+        console.log(name);  // linda
+        console.log(age);   // 20
+        practiceDance();    // dance again and again.
+
+        console.log(defaultObj);    // {foo: "bar"}
+
+        console.log(m);       // Module {Symbol(Symbol.toStringTag): "Module"}
+        console.log(m.name);  // 20
+    </script>
+</body>
+</html>

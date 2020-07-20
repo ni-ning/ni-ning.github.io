@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function* func(){
+            console.log('start...');
+            yield 'one';
+            yield 'two';
+            yield 'three';
+        }
+
+        let gen = func();
+        console.log(gen);   // 只是返回生成器对象，还没进入到函数内部
+        console.log(gen.next());    // {value: "one", done: false}
+        console.log(gen.next());    // {value: "two", done: false}
+        console.log(gen.next());    // {value: "three", done: false}
+
+
+        function* add(){
+            console.log('start...');
+            let x = yield 'one';
+            console.log(`x: ${x}`);
+
+            let y = yield 'two';
+            console.log(`y: ${y}`);
+
+            return `x+y: ${x + y}`;
+        }
+
+        let g = add();
+        g.next();
+        g.next(10);
+        let s = g.next(20);
+        console.log(s);
+        
+        function* objEntries(obj){
+            // 获取对象的所有keys保存到数组中
+            const propKeys = Object.keys(obj);
+            for(const propKey of propKeys){
+                yield [propKey, obj[propKey]]
+            }
+        }
+
+        const obj = {
+            name: 'lidna',
+            age: 20
+        }
+        // obj[Symbol.Iterator] = objEntries;
+        // console.log(obj);
+
+        for(let [key, value] of objEntries(obj)){
+            console.log(`${key}: ${value}`);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function fn(){
+            let s = await 'Hello World';
+            let data = await s.split('');
+            return data;
+        }
+
+        // 如果async函数中有多个await，then函数会等待所有await执行完之后的结果
+        fn().then(v=>{console.log(v)}).catch(e=>{console.log(e)});
+    </script>
+</body>
+</html>

@@ -48,9 +48,6 @@
         // 遍历相关操作
         // entries() keys() values() 返回一个遍历器 可以使用for...of 进行遍历
         let arr3 = ['a', 'b', 'c', 'd'];
-        console.log(arr3.keys());
-        console.log(arr3.values());
-        console.log(arr3.entries());
 
         for(let index of arr3.keys()){
             console.log(index);
@@ -58,16 +55,9 @@
         for(let element of arr3.values()){
             console.log(element);
         }
-        console.log('----------------------------');
         for(let[index, element] of arr3.entries()){
             console.log(index, element);
         }
-        
-        let letters = ['a', 'b', 'c'];
-        let it = letters.entries();
-        console.log(it.next().value);
-        console.log(it.next().value);
-        console.log(it.next().value);
 
         // includes() 类似 python in 返回 true or false
         console.log(letters.includes('a'));

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+    <script>
+        
+        function loadUI(){
+            console.log('加载loading...页面');
+        }
+        function showData(){
+            // 模拟异步操作
+            setTimeout(()=>{
+                console.log('数据加载完成');
+                it.next();
+            }, 2000)
+        }
+        function hideUI(){
+            console.log('隐藏loading...页面')
+        }
+
+        // yield next 控制流程
+        function* load(){
+            loadUI();
+            yield showData();
+            hideUI();
+
+        }
+        const it = load();
+        it.next();
+
+
+
+
+        // // 回调地狱：在success中需要不断循环请求url
+        // const url = 'https://geoapi.heweather.net/v2/city/lookup?location=beijing&key=1fc8a0b2876e4f7dbbe5a58c9c080fc9'
+        // $.ajax({
+        //     url:url,
+        //     method: 'get',
+        //     success: function(res){
+        //         console.log(res);
+        //     }
+        // })
+
+        // // 异步代码 同步化
+        // function* main(){
+        //     let res = yield request(url);
+        //     console.log(res);
+
+        //     console.log('continue...')
+        // }
+        // const it = main();
+        // it.next();
+
+        // function request(targetURL){
+        //     $.ajax({
+        //         url: targetURL,
+        //         method: 'get',
+        //         success: function(res){
+        //             it.next(res);
+        //         }
+        //     })
+        // }
+    </script>
+</body>
+</html>
