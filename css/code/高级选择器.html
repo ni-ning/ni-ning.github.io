@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高级选择器</title>
+
+    <style>
+        /* html标签有嵌套关系 所以 后代选择器 有应用空间*/
+        /* div 还可以是 #id .class等 */
+        /* div a{
+            color: gold;
+        } */
+
+        /* 子代选择器 亲儿子 */
+        div > a{
+            color: brown;
+        }
+
+        /* 组合选择器 */
+        h3,span{
+            font-size: 20px;
+            color: gray;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div>
+        <p>
+            <a href="#">小猿圈</a>
+        </p>
+            <a href="#">Hello World</a>
+    </div>
+
+    <h3>哒哒哒</h3>
+    <span>在干嘛呢</span>
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+p{
+    color: orange;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#young{
+    color: green;
+}
+
+#life{
+    color: red;
+}
+
+.active{
+    color: gray;
+}
+
+.title{
+    font-size: 36px;
+}
