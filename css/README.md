@@ -43,13 +43,30 @@ CSS引入方式
 !import 强制生效，不推荐使用
 
 ## 字体属性
-
+- font-family
+- font-weight
+- font-size
+- color
 
 ## 文本属性
+- text-align
+- line-height
+- text-decoration
+
 
 ## 背景属性
 
-## display属性
+## display 显示模式
+标准文档流等级森严。display属性可以将块级元素和行内元素进行互相转换
+
+行内元素 inline
+- 与其他行内元素并排;
+- 不能设置宽、高。默认的宽高就是文字的宽高
+
+块级元素 block
+- 霸占一行, 不能与其他任何元素并列;
+- 能设置宽、高。如果不设置宽度，默认宽度为父元素 100%
+
 
 ## 盒子模型
 
