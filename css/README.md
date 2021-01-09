@@ -101,22 +101,44 @@ body {
 }
 ```
 
-
 ## 背景属性
 
 ## display 显示模式
 标准文档流等级森严。display属性可以将块级元素和行内元素进行互相转换
 
-行内元素 inline
+html分类
+文本级标签
+- h1 ~ h6
+- p
+- a
+- span
+- img
+
+排版级标签
+- br/hr
+- div
+- table
+- form iput select
+- ul/ol/dl/ li
+
+
+行内元素 display: nline
 - 与其他行内元素并排;
 - 不能设置宽、高。默认的宽高就是文字的宽高
 
-块级元素 block
+块级元素 display: block
 - 霸占一行, 不能与其他任何元素并列;
 - 能设置宽、高。如果不设置宽度，默认宽度为父元素 100%
 
 
-## 盒子模型
+行内块元素 display: inline-block
+- 在一行内显示；
+- 可以设置宽高
+- input img
+
+## 盒模型
+
+用来设计和布局，所有的HTML元素可以看做盒子
 
 - width: 内容的宽度
 - height: 内容的高度
@@ -124,15 +146,32 @@ body {
 - border: 边框, 指盒子的宽高
 - margin: 外边距, 盒子边框到附近最近盒子的距离
 
+## 清除HTML标签的默认样式
 
+```
+<style>
+    body, p, ul, ol, dl, dt{
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul{
+        list-style: none;
+    }
+
+    input{
+        border: none;
+        outline: none;
+    }
+</style>
+```
+
+https://meyerweb.com/eric/tools/css/reset/
 
 ## 浮动与清除浮动
 
 ## 定位
 
-## 继承性问题
-
-## 初始化问题
 
 
 

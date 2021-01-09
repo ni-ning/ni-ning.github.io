@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除HTML标签的默认样式</title>
+    <style>
+        body, p, ul, ol, dl, dt{
+            /* height: 200px;
+            border: 1px solid red; */
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul{
+            list-style: none;
+        }
+
+        input{
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <p>我是一个段落</p>
+    <p>我是一个段落</p>
+
+    <ul>
+        <li>条目1</li>
+        <li>条目2</li>
+        <li>条目3</li>
+    </ul>
+
+    <input type="text" name="" id="">
+    
+</body>
+</html>
