@@ -1,10 +1,13 @@
 
 ## CSS 概述
 
-- 样式代码 与 网页内容 分离
+层叠样式表(Cascading Style Sheets)
+
+- 解决内容与表现分离的问题
+- 同时控制多重网页的样式和布局
+- 多个样式定义可层叠为一
+
 - CSS 解决的是 这个组件应该放在这、多大、什么颜色等等的问题
-- 网页的表现统一，容易修改
-- 丰富的样式，使页面布局更加灵活
 
 
 CSS引入方式
@@ -14,24 +17,37 @@ CSS引入方式
 
 ## 选择器
 
+选中页面上的元素(标签), 设置对应的样式
+
 ```
 选择器 {
     属性名: 属性值;
     属性名: 属性值;
 }
+
+# 语法
+selector {property: value;}
+# 示例
+h1 {color:red; font-size:14px}
+# 含义
+将h1元素内的文字颜色定义为红色，同时将字体大小设置为14像素
+
 ```
 
 基础选择器
-- 标签(元素)选择器
-- 类(class)选择器
-- id(身份证)选择器
+- 标签(元素)选择器 对应页面中相同的元素，设置共同的属性 a div p 
+- 类(class)选择器 
+    * 任何元素都可以设置类
+    * 同一个元素可以添加多个类 <div class="类1 类2 类3"></div>
+    * 一定要有"归类的概念, 公共的想法" 
+- id(身份证)选择器 在现代布局中，id选择器常常用于建立派生选择器 #sidebar p{...}  #sidebar h2{...}
 
 高级选择器
-- 后代选择器
-- 子代选择器
-- 组合选择器
+- 后代选择器(或称派生选择器) 通过依据元素在其位置的上下文关系来定义样式 li strong{...}
+- 子代选择器(亲儿子)  div>p {...}
+- 组合选择器 h1,h2,h3 {...}
 - 交集选择器
-- 伪类选择器
+- 伪类选择器 a:link{} a:visited{} a:hover{悬浮时，可以应用于任何元素} a:active{点击瞬间}
 
 选择器的优先级
 - 内联样式的权重为1000
@@ -42,16 +58,48 @@ CSS引入方式
 
 !import 强制生效，不推荐使用
 
+
 ## 字体属性
-- font-family
+- font-family 字体
 - font-weight
-- font-size
-- color
+    * bold 粗体
+    * 400 默认
+- font-size 字体大小 
+    * 绝对单位 px
+    * 相对单位 em
+    * 相对单位 rem mobile端
+- color 字体颜色
+    * 单词表示法 red green yellow purple orange
+    * rgb rgba
+    * 十六进制表示法 #ffeedd
+- font-style 字体样式
+    * normal 默认
+    * italic 斜体
 
 ## 文本属性
 - text-align
-- line-height
+    * center 使用最多
+    * left
+    * right
+- line-height 行与行之间的距离
 - text-decoration
+    * none
+    * underline 下划线
+    * line-through 删除线
+- text-indent 文本缩进 建议使用em
+- letter-spacing中文字间距 / word-spacing单词间距
+
+
+## 继承性
+子元素从父元素继承属性
+- color
+- font-size
+- border 不能继承 子元素 inherited from 置灰
+```
+body {
+    font-family: "微软雅黑 仿宋"
+}
+```
 
 
 ## 背景属性
@@ -85,3 +133,8 @@ CSS引入方式
 ## 继承性问题
 
 ## 初始化问题
+
+
+
+## 参考链接
+- https://paddywang.github.io/demo/
