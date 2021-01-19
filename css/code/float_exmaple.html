@@ -17,6 +17,12 @@
             text-decoration: none;
         }
 
+        input{
+            outline: none;
+            margin: 0;
+            padding: 0;
+        }
+
         /* 固定高度 可解决清除浮动的问题*/
         .top-bar{
             width: 100%;
@@ -98,7 +104,7 @@
             float: right;
             width: 300px;
             height: 100px;
-            background-color: blue;
+            /* background-color: blue; */
         }
         .site-header::after{
             content: '';
@@ -137,6 +143,33 @@
             color: #ff6700;
         }
 
+        /* .site-search .search_input {
+            float: right;
+            width: 200px;
+            height: 50px;
+            position: relative;
+            right: 20px;
+            top: 22px;
+            border: 1px solid #cfcfcf;
+            padding-left: 10px;
+        }
+        .site-search .search_button{
+            float: right;
+            width: 51px;
+            height: 52px;
+            border: 0;
+            background-color: #ffffff;
+            position: relative;
+            right: 20px;
+            top: 22px;
+            border: 1px solid #cfcdcf;
+            font-size: 20px;
+        }
+        .site-search::after{
+            content: '';
+            display: block;
+            clear: both;
+        } */
     </style>
 </head>
 <body>
@@ -202,7 +235,14 @@
                     <li><a href="#">社区</a></li>
                 </ul>
             </div>
-            <div class="site-search"></div>
+            <div class="site-search">
+                <input type="button" class="search_button" value="🔍">
+                <input type="text" class="search_input">
+                <div class="hot-search-word">
+                    <span>小米10</span>
+                    <span>红米Plus</span>
+                </div>
+            </div>
         </div>
     </div>
 
