@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>13CSS技巧</title>
+		<style type="text/css">
+			.outer{
+				text-align: center;
+			}
+			.center1{
+				display: inline-block;
+				width: 400px;
+				height: 50px;
+				border: 1px dashed gray;
+				line-height: 50px;
+				text-align: center;
+			}
+			.center2{
+				/* display 决定居中的实现方式 */
+				display: block;
+				width: 400px;
+				height: 50px;
+				border: 1px dashed gray;
+				margin: 0 auto;
+				line-height: 50px;
+				text-align: center;
+			}
+			.inline div{
+				text-align: center;
+			}
+			
+			.para{
+				display: table-cell;
+				vertical-align: middle;
+				width: 400px;
+				height: 200px;
+				border: 1px dashed gray;
+				text-align: center;
+				
+			}
+			
+			.para span{
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="center1">
+				CSS实现单行文字水平居中: text-align: center
+			</div>
+		</div>
+		<div class="center2">
+			块级元素居中 margin: 0 auto
+		</div>
+		<div class="inline">
+			<div>
+				<span>span元素</span>
+			</div>
+			<div>
+				<a href="">a元素</a>
+			</div>
+		</div>
+		
+		<p class="para">
+			<span>
+				多行文字，垂直居中1<br/>
+				多行文字，垂直居中2<br/>
+				多行文字，垂直居中3<br/>
+				多行文字，垂直居中4<br/>
+				
+			</span>
+		</p>
+	</body>
+</html>
