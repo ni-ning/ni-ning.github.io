@@ -222,7 +222,7 @@ var person = {
     age: 18,
     sex: 'femail',
     fav: function(){
-        alert('running')
+        alert('running');
     }
 };
 console.log(person);
@@ -285,4 +285,130 @@ function compare(a, b){
 }
 arr.sort(compare);
 console.log(arr);
+
+
+var colors = ['red', 'blue'];
+// 数组拼接 类似 extend 和 append，需注意传入参数和返回值
+var newColors = colors.concat({name:'linda'}, ['black', 'purple']);
+console.log(newColors);
+
+// 切片 slice
+console.log(newColors.slice(0, 3));     // 类似 newColors[0:3] 一样都是顾头不顾尾，也支持负数
+
+// 删除 插入 替换 splice
+var names = ['linda', 'alex', 'catherine', 'lightnning'];
+console.log(names);
+// 仅仅删除
+names.splice(0, 2);   //从索引0开始，删除2个元素
+console.log(names);
+// 仅仅插入
+names.splice(1, 0, 'blues');  // 从索引1开始，删除0个元素，且在索引1之前插入blues
+console.log(names);
+// 仅仅替换
+names.splice(1, 1, 'blues li');   // 替换的意思
+console.log(names);
+
+var fruits = ['apple', 'banana', 'orange', 'pear', 'melon', 'pear'];
+console.log(fruits.indexOf('pear'));        // 从前往后查
+console.log(fruits.lastIndexOf('pear'));    // 从后往前查
+console.log(fruits.indexOf('blue'));        // 查不到返回 -1 
+
+var numbers = [1, 3, 10, 4, 6, 8, 20];
+// 类似 map(function, iterable)
+var newNumbers = numbers.map(function(item, index){
+    return item * 100;
+});
+console.log(newNumbers);
+// 类似 filter
+var newNumbers2 = numbers.filter(function(item, index){
+    return item > 5;
+});
+console.log(newNumbers2);
+```
+
+## 内置对象 - 字符串
+
+```
+var str = 'hello world';
+
+console.log(str.length);        // 获取字符串长度, 类似 len(str)
+console.log(str.charAt(1));     // 获取指定索引的字符串 类似str[1]
+console.log(str.charCodeAt(1));
+console.log(str + ' linda');    // 常用拼接 
+
+console.log(str.indexOf('l'));      
+console.log(str.lastIndexOf('l'));
+
+console.log('   hello   '.trim().length);   // 类似 str.strip()
+console.log(str.toLowerCase());
+console.log(str.toUpperCase()); 
+
+console.log('--------------');
+console.log(str.slice(2));      // 切片，类似str[2:]
+console.log(str.substring(2));  
+console.log(str.slice(2, 4));
+console.log(str.substring(2, 4));
+console.log(str.substr(2, 6));  // 第二个参数表示返回的字符串
+
+// 查找e在字符串中的所有位置
+var temp = 'He unfolded the map and set it on the floor.';
+var arr = [];
+var pos = temp.indexOf('e');    // 1
+console.log(pos);
+while(pos > -1){
+    // 找到当前e字符对应的位置
+    arr.push(pos);
+    pos = temp.indexOf('e', pos+1);
+}
+console.log(arr);
+```
+
+## 内置对象 - 日期
+```
+var now = new Date();
+console.log(now);
+
+var d1 = new Date(1995, 11, 25);
+console.log(d1);
+
+console.log(now.getDate());         // 获取月份的第几天 1~31
+console.log(now.getMonth());        // 获取月份 0-11
+console.log(now.getFullYear());     // 获取年份 如 2021
+console.log(now.getDay());          // 6表示周六 0表示周日
+console.log(now.getHours());        // 获取小时 19 (0~23)
+console.log(now.getMinutes());      // 获取分钟 45 (0~59)
+console.log(now.getSeconds());      // 获取秒 33 (0~59)
+
+console.log(now.toDateString());
+console.log(now.toTimeString());
+// 常用
+console.log(now.toLocaleDateString());
+console.log(now.toLocaleTimeString());
+console.log(now.toLocaleString());
+
+console.log(now.toUTCString());
+```
+
+## 字符串和数值相互转换
+
+```
+var str = '13131.9090013';
+// 转换整型
+console.log(parseInt(str));     // 13131
+console.log(parseFloat(str));   // 13131.9090013
+console.log(typeof parseFloat(str));    // 'number'
+
+var a = Number(str);
+console.log(a);         // 13131.9090013
+console.log(isNaN(a));  // false
+
+var num = 1313.779;
+// 强制类型转
+console.log(num.toString());            // '1313.779'
+console.log(typeof num.toString());     // 'string'
+console.log(String(num));
+
+// 隐式转换
+console.log(''+num);            // Python中会抛异常
+console.log(num.toFixed(1))     // 1313.8
 ```

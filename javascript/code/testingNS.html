@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number和String</title>
+</head>
+<body>
+    <script>
+        var str = '13131.9090013';
+        // 转换整型
+        console.log(parseInt(str));     // 13131
+        console.log(parseFloat(str));   // 13131.9090013
+        console.log(typeof parseFloat(str));    // 'number'
+
+        var a = Number(str);
+        console.log(a);         // 13131.9090013
+        console.log(isNaN(a));  // false
+
+        var num = 1313.779;
+        // 强制类型转
+        console.log(num.toString());            // '1313.779'
+        console.log(typeof num.toString());     // 'string'
+        console.log(String(num));
+
+        // 隐式转换
+        console.log(''+num);            // Python中会抛异常
+        console.log(num.toFixed(1))     // 1313.8
+    </script>
+</body>
+</html>

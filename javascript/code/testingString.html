@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestingString</title>
+</head>
+<body>
+    
+    <script>
+        var str = 'hello world';
+        
+        console.log(str.length);        // 获取字符串长度, 类似 len(str)
+        console.log(str.charAt(1));     // 获取指定索引的字符串 类似str[1]
+        console.log(str.charCodeAt(1));
+        console.log(str + ' linda');    // 常用拼接 
+
+        console.log(str.indexOf('l'));      
+        console.log(str.lastIndexOf('l'));
+
+        console.log('   hello   '.trim().length);   // 类似 str.strip()
+        console.log(str.toLowerCase());
+        console.log(str.toUpperCase()); 
+        
+        console.log('--------------');
+        console.log(str.slice(2));      // 切片，类似str[2:]
+        console.log(str.substring(2));  
+        console.log(str.slice(2, 4));
+        console.log(str.substring(2, 4));
+        console.log(str.substr(2, 6));  // 第二个参数表示返回的字符串
+        
+        // 查找e在字符串中的所有位置
+        var temp = 'He unfolded the map and set it on the floor.';
+        var arr = [];
+        var pos = temp.indexOf('e');    // 1
+        console.log(pos);
+        while(pos > -1){
+            // 找到当前e字符对应的位置
+            arr.push(pos);
+            pos = temp.indexOf('e', pos+1);
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>
