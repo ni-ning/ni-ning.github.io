@@ -412,3 +412,17 @@ console.log(String(num));
 console.log(''+num);            // Python中会抛异常
 console.log(num.toFixed(1))     // 1313.8
 ```
+
+## BOM
+
+```
+# window
+	alert()
+	confirm()
+	prompt()
+
+	# 新说法 定时任务
+	setInterval()
+	setTimetout()
+
+```
