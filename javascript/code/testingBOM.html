@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <script>
+        window.alert('Alert');
+
+        // 与用户交互，true || false
+        var ret = window.confirm('Are you sure to leave?');
+        console.log(ret);
+
+        // 与用户交互，用户输入值
+        var name = window.prompt('Please input you name?', 'defalut');
+        console.log(name);  // 取消时 name 为 null，而不是 'default'
+    </script>
+</body>
+</html>
