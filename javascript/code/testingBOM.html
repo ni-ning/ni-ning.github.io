@@ -7,15 +7,31 @@
 </head>
 <body>
     <script>
-        window.alert('Alert');
+        // window.alert('Alert');
 
-        // 与用户交互，true || false
-        var ret = window.confirm('Are you sure to leave?');
-        console.log(ret);
+        // // 与用户交互，true || false
+        // var ret = window.confirm('Are you sure to leave?');
+        // console.log(ret);
 
-        // 与用户交互，用户输入值
-        var name = window.prompt('Please input you name?', 'defalut');
-        console.log(name);  // 取消时 name 为 null，而不是 'default'
+        // // 与用户交互，用户输入值
+        // var name = window.prompt('Please input you name?', 'defalut');
+        // console.log(name);  // 取消时 name 为 null，而不是 'default'
+
+        // // 延迟性操作，类似异步任务有时间，类似子线程指定执行的函数，只执行一次
+        // setTimeout(function(){
+        //     console.log('delay 2 seconds...');
+        // }, 2000);
+
+        // // 周期性操作
+        // var count = 0;
+        // var timmer = null;
+        // timmer = setInterval(function(){
+        //     console.log(count);
+        //     if(count >= 5){
+        //         clearInterval(timmer);
+        //     }
+        //     count += 1;
+        // }, 2000);
     </script>
 </body>
 </html>
