@@ -426,3 +426,31 @@ console.log(num.toFixed(1))     // 1313.8
 	setTimetout()
 
 ```
+
+
+## ES6模块
+
+导出关键字 export  导入关键字 import
+```
+无论是单个导出
+export const name = 'linda';
+export const age = 18;
+
+还是 对象批量导出
+const gender = 'female';
+function run(){
+    console.log('running...)
+}
+export {
+    gender,
+    run
+}
+
+
+导入时 都可以对象解封的形式
+import {name, age, gender, run} from 'source.js'
+```
+
+- 每个模块只能有一个默认导出 export default foo;
+- 导入模块的默认导出时 import varable from 'source.js'  变量任意起，不用{}形式
+- script type="module" 作为入口测试import，且 Open With Live Server形式测试有效

@@ -136,5 +136,103 @@ tail -f /etc/passwd
 ```
 mkdir -p a/b/c
 rmdir -p a/b/c
+```
 
+## Vim
+
+vim不是一个排版工具，只能编辑文本，没有菜单，只有命令
+
+- 命令模式
+- 插入模式  R  可以尝试下
+- 末行模式  :
+- 替换模式  aoi
+
+
+命令模式
+```
+光标移到开头 gg
+光标移到最后一行 G
+光标移动一个单词 w
+
+保存退出 ZZ
+
+复制行 yy -yanked
+复制n行 如5yy
+粘贴到光标行后 p
+粘贴到光标行前 P
+
+向后不断删除字符 x
+向前不断删除字符 X
+
+删除行 dd
+删除n行 如5dd
+
+撤销操作 u
+
+搜索
+/search_key
+```
+
+末行模式
+```
+不保存，强制退出 q! 
+保存 w
+保存退出 wq
+
+:s/old/new/ 只替换光标所在行第一个old
+
+:set nu    设置行号
+:set nonu  取消行号
+```
+
+相关文件
+```
+.viminfo   vim 如 命令操作记录
+.vimrc  个人定制 如 set nu
+```
+
+## 用户和组
+
+联想 web 应用权限设计
+
+- 管理员 root
+- 系统用户 uid小于1000 系统服务管理用户，一般不允许登录系统
+- 普通用户 uid大于999 权限较小 可以登录系统 只能使用bin目录下的命令
+
+组
+- 就是一个用户容器，用来装用户，没有其他意义
+- 默认情况下，新建用户的同时，系统会创建一个同名组装载该用户
+- 在Linux中的每个用户必须属于一个组，不能独立于组外
+- 在Linux中每个文件有所有者、所在组、其他组的概念
+- Linux下的权限是针对具体文件设置的
+
+
+用户管理
+```
+# user01 UID 1500; 附属于root组; 家目录/tmp/user01; 登录shell /bin/bash
+useradd -u 1500 -G root -d /tmp/user01 -s /bin/bash -c "test user01" user01
+
+# user02 系统用户; 不要家目录; 不允许交互登录
+useradd -r -M -s /sbin/nologin user02
+
+# user03 启用过期 过期时间为 2021-02-30
+useradd -f 3 -e 2021-02-20 user03
+
+# user04 UID 0 GID 0
+useradd -o -u 0 -g 0 user04
+
+# 切换用户
+su - user01
+su - user03
+su - user04
+
+# 锁定用户 解锁用户
+passwd -l user01
+passwd -u user01
+
+# 设置密码 - 交互
+passwd user01
+
+# 设置密码
+echo "passwd" | passwd --stdin user01
 ```

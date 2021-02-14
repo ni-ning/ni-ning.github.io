@@ -1,15 +1,20 @@
-// 命名行内导出
-export const baz = 'baz';
-export const foo = 'foo', bar = 'bar';
-export function f(){};
-export function* ff(){};
-export class Foo {};
-
-// 命名子句导出
-export {
-	foo
+export const foo = 'foo';
+export const name = '张三';
+export function sayHello(){
+    console.log('Hello world!');
 };
 
-// 默认导出
+const arr = [1, 2, 3, 4];
+let object = {
+    name: 'linda',
+    age: 18,
+    sex: 'female'
+}
 
-export default 'default';
+export {
+    arr,
+    object
+}
+
+const names = ['linda', 'alex', 'tom', 'tick']
+export default names;

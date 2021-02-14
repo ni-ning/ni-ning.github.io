@@ -6,9 +6,18 @@
 	</head>
 	<body>
 		<p>Hello world!</p>
+		
 		<script type="module">
-			import {foo} from './js/moduleA.js'
+			// script type="module" 入口文件
+			import names,  {foo, name, sayHello, arr, object} from './js/moduleA.js'
+
 			console.log(foo);
+			console.log(name);
+			sayHello();
+			console.log(arr);
+			console.log(object);
+
+			console.log(names);
 		</script>
 	</body>
 </html>
