@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>testingJSON</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let book = {
+				title: 'How to learn JavaScript',
+				authors : ['linda', 'tim'],
+				edition: 4,
+				hasPublished: true,
+				toJSON: function(){
+					return this.title;
+				}
+			};
+			
+			// let jsonText = JSON.stringify(book);
+			// console.log(jsonText);
+			
+			// let bookCopy = JSON.parse(jsonText);
+			// console.log(bookCopy);
+		</script>
+	</body>
+</html>

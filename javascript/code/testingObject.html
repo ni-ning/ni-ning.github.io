@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 工厂模式
+		function createPerson(name, age, job){
+			let o = new Object();
+			o.name = name;
+			o.age = age;
+			o.job = job;
+			o.sayName = function(){
+				console.log(this.name);
+			};
+			return o;
+		}
+		let p1 = createPerson('linda', 20, 'coder');
+		let p2 = createPerson('alex', 29, 'coder');
+		
+		// 构造函数模式
+		// function Person(name, age, job){
+		// 	this.name = name;
+		// 	this.age = age;
+		// 	this.job = job;
+		// 	this.sayName = function(){
+		// 		console.log(this.name);
+		// 	};
+		// }
+		// let p3 = new Person('tim', 22, 'operator');
+		// let p4 = new Person('cook', 40, 'financer');
+		
+		// 原型模式
+		function Person(){}
+		
+		Person.prototype.name = 'linda';
+		Person.prototype.age = 20;
+		Person.prototype.job = 'engineer';
+		Person.prototype.sayName = function(){
+			console.log(this.name);
+		}
+		
+		let p3 = new Person();
+		let p4 = new Person();
+	</script>
+</html>
