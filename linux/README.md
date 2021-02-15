@@ -235,4 +235,56 @@ passwd user01
 
 # 设置密码
 echo "passwd" | passwd --stdin user01
+
+# 删除用户
+userdel user01
+rm -rf /home/user01
+rm -rf /var/mail/user01
+
+userdel -r user02   # 删除用户及关联文件
+
+man usermod
 ```
+
+密码文件
+```
+/etc/passwd
+[用户名]:[隐藏密码占位]:[UID]:[GID]:[身份描述]:[主目录]:[登录shell]
+
+/etc/shaow 影子文件 实际密码信息 密码过期时间
+```
+
+组
+```
+/etc/group
+/etc/gpasswd
+
+groupadd
+groupdel
+groupmod
+gpasswd
+```
+
+用户创建相关文件
+```
+/etc/passwd 用户账户信息
+/etc/shadow 用户账户安全信息
+/etc/group   组账户信息
+/etc/gpasswd 组账户安全信息
+
+/etc/default/useradd 账户创建默认值
+/etc/login.defs  密码套件配置
+/etc/skel/ 创建家目录默认文件模板
+```
+
+## 权限
+Linux权限其实就是用户对Linux中的文件和文件夹的权限
+- 读 r(read)
+- 写 w(write)
+- 执行 x(execute)
+
+## 性能管理
+
+
+
+
