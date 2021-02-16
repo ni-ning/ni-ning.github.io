@@ -415,17 +415,92 @@ console.log(num.toFixed(1))     // 1313.8
 
 ## BOM
 
+除网页外的浏览器信息操作
+
+- alert、confirm、prompt
+- setTimeout、setInterval
+- location
+- navigator
+- history
+- ......
+
 ```
 # window
-	alert()
-	confirm()
-	prompt()
+// 仅提醒 alert
+window.alert('这是window.alert');
+// 返回值布尔类型 用户交互选择 confirm
+let res = window.confirm('你确定要离开?');
+console.log(res);
+// 返回值字符串 用户交互输入
+let ret = window.prompt('早晨吃了啥?', 'defaut');
+console.log(typeof ret);
+console.log(ret);
 
-	# 新说法 定时任务
-	setInterval()
-	setTimetout()
+# 异步任务 延时操作
+window.setTimeout(function(){
+    console.log('异步任务，只执行一次，类似delay');
+}, 3000)
 
+# 周期性任务  
+let count = 0;
+let timmer = setInterval(function(){
+    console.log(count);
+    if (count === 3){
+        clearInterval(timmer);
+    }
+    console.log('周期性任务，每隔一段时间执行一次');
+    count += 1;
+}, 2000);
+console.log('主进程执行完毕!');
+
+注: 
+1. 无论setTimeout, 还是setInterval 都没有主进程执行的快
+2. 清除定时器操作
+
+# location
+location.protocol   // "http:"
+location.hostname   // "127.0.0.1"
+location.port       // "5500"
+location.pathname   // "/javascript/code/testing.html"
+location.href       // "http://127.0.0.1:5500/javascript/code/testing.html?key=value"
+location.search     // "?key=value"
+
+location.href = '跳转到新页面'
+location.reload();
+
+
+function getQueryString(){
+    let qs = location.search.substring(1);  // ''.substring(1)
+    let items = qs.length > 0 ? qs.split('&') : [];
+    let o = new Object();
+    items.forEach(function(item, index, array){
+        data = item.split('=');  // 不同于Python可以解构赋值
+        name = decodeURIComponent(data[0]);   // url处理的特殊性
+        value = decodeURIComponent(data[1]);
+
+        o[name] = value
+    })
+    return o;
+}
+
+let o = getQueryString();
+console.log(o);
 ```
+
+
+## DOM
+Document Object Model 文档对象模型  接口 document
+
+- 元素节点(element node)
+- 文本节点(text node)
+- 属性节点(attribute node)
+
+没有内容的文档是没有价值的，而大多数内容都是有文本提供的
+
+
+
+
+
 
 
 ## ES6模块

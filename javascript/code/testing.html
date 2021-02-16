@@ -4,15 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            width: 2000px;
-            height: 100px;
-            background-color: grey;
-        }
-    </style>
+
 </head>
 <body>
     
+    <script>
+        // // 仅提醒 alert
+        // window.alert('这是window.alert');
+        // // 返回值布尔类型 用户交互选择 confirm
+        // let res = window.confirm('你确定要离开?');
+        // console.log(res);
+        // // 返回值字符串 用户交互输入
+        // let ret = window.prompt('早晨吃了啥?', 'defaut');
+        // console.log(typeof ret);
+        // console.log(ret);
+        
+        // // 异步任务 延时操作
+        // window.setTimeout(function(){
+        //     console.log('异步任务，只执行一次，类似delay');
+        // }, 3000)
+        
+        // // 周期性任务  
+        // let count = 0;
+        // let timmer = setInterval(function(){
+        //     console.log(count);
+        //     if (count === 3){
+        //         clearInterval(timmer);
+        //     }
+        //     console.log('周期性任务，每隔一段时间执行一次');
+        //     count += 1;
+        // }, 2000);
+        // console.log('主进程执行完毕!');
+
+        
+        // function getQueryString(){
+        //     let qs = location.search.substring(1);  // ''.substring(1)
+        //     let items = qs.length > 0 ? qs.split('&') : [];
+        //     let o = new Object();
+        //     items.forEach(function(item, index, array){
+        //         data = item.split('=');  // 不同于Python可以解构赋值
+        //         name = decodeURIComponent(data[0]);
+        //         value = decodeURIComponent(data[1]);
+
+        //         o[name] = value
+        //     })
+        //     return o;
+        // }
+
+        // let o = getQueryString();
+        // console.log(o);
+
+    </script>
 </body>
 </html>

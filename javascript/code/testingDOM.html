@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing DOM</title>
+    <style>
+        #box{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h2>你要购买什么课程呢?</h2>
+    <p title="请选择购买的课程">课程有:</p>
+    <ul id="classList">
+        <li class="item">JavaScript</li>
+        <li class="item">Python</li>
+        <li>Linux</li>
+    </ul>
+</body>
+
+<script>
+    // 单个对象
+    let eleNode = document.getElementById('classList');
+    console.log(eleNode);
+    console.log(typeof eleNode);
+    
+    // 多个元素对象
+    let oLi = document.getElementsByTagName('li');
+    console.log(oLi);
+    console.log(typeof oLi);
+    // 多个元素有点像数组
+    let oItem = document.getElementsByClassName('item');
+    console.log(oItem);
+    console.log(typeof oItem);
+
+    let oP = document.getElementsByTagName('p')[0];
+    // 获取属性值
+    let title = oP.getAttribute('title');
+    let className = oP.getAttribute('class');
+    console.log(title);
+    console.log(className);
+    // 设置属性值
+    oP.setAttribute('id', 'box');
+
+
+</script>
+</html>
