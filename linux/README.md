@@ -7,6 +7,7 @@
 - 让每个程序都成为过滤器，程序需要与其他工具配合使用，管道的支持非常重要
 - 任何程序要考虑被批处理执行，尽量避免与用户交互
 
+注: 测试环境 CentOS7
 
 ## 常用目录
 
@@ -105,7 +106,6 @@ touch
 Access atime 访问的时间，如less file
 Change ctime 节点修改时间，如修改文件名 mv file file1
 Modify mtime 修改内容，会影响 atime ctime mtime
-
 ```
 
 ls
@@ -283,8 +283,191 @@ Linux权限其实就是用户对Linux中的文件和文件夹的权限
 - 写 w(write)
 - 执行 x(execute)
 
+
+## 软件安装
+- rpm 源码封装后的格式，类似于exe格式 不是特别安全
+- yum
+- 源码 软件源代码，可以修改优化 推荐
+
+rpm
+```
+rpm -ivh package_name
+- 安装时会遇到依赖问题
+
+rpm -qa
+```
+
+yum
+```
+yum install elinks
+
+
+搭建yum源
+- file 本地传输协议
+- ftp http https 基于网络
+
+
+配置客户端
+cd /etc/yum.repos.d
+
+# 必须.repo结尾 如 testing.repo
+[ftp]
+name=ftp
+baseurl=ftp://localhost/pub
+gpgcheck=0
+
+# 本地源
+[local]
+baserurl=file:///mnt/dvd
+gpgcheck=0
+
+less /etc/yum.conf
+cachedir=/var/cache/yum/$basearch/$releasever
+keepcache=0
+logfile=/var/log/yum.log
+
+man yum
+- yum install
+- yum remove 
+- yum update
+- yum search
+```
+
+源码安装
+```
+# 安装nginx
+cd ~
+wget http://nginx.org/download/nginx-1.18.0.tar.gz
+tar -zxvf nginx-1.18.0.tar.gz
+cd nginx-1.18.0 
+
+# configure 检查安装环境及依赖
+./configure
+yum install pcre-devel zlib-devel
+
+# make 编译生成安装文件
+make
+
+# 安装到系统
+make install
+```
+
+## 系统服务
+
+- 初始化进程 pid=1 
+- 特殊守护进程 systemd  命令systemctl
+
+独立服务
+- 各类服务启动关闭等操作脚本 /usr/lib/systemd/system
+
+```
+systemctl [command] [unit]
+command主要有
+- start 立刻启动后面的unit
+- stop 立刻关闭后面的unit
+- restart 即stop->start
+- reload 不关闭unit，加载配置
+- enable 开机自启动unit
+- disable 开机不启动unit
+- status 展示有没有执行、开始是否自启动等信息
+- is-active 有没有正在执行
+- is-enabled 有没有开机自启动
+- kill 向unit发送信号
+- show 列出配置
+- mask 注销unit，即无法启动
+- unmask 取消对unit的注销
+
+# 部署vsftpd服务
+yum install vsftpd
+
+vim /usr/lib/systemd/system/vsftpd.service   # 该服务软件的启动脚本
+
+[Unit]
+Description=Vsftpd ftp daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl status vsftpd
+systemctl start vsftpd
+```
+
+非独立服务 *了解即可
+- xinetd，小的服务放到xinetd托管，提供访问控制、日志和资管管理等功能
+```
+# 配置文件
+/etc/xinetd.conf
+# 用于存放被托管的服务的目录
+/etc/xinetd.d/
+
+yum install -y telnet-server telnet xinetd
+```
+
+
+## 进程
+
+Linux系统中几乎任何行动都会以进程的形式进行。进程是完成工作的形式，Linux内核的基本职责就是为进程提供做事情的地方以及使用的资源，不让彼此撞车
+
+- ps 静态任务管理器
+- top 动态任务管理器
+- kill 杀死单个进程
+- killall 杀死一个进程树
+
+ps
+```
+ps aux
+[COMMAND] 中括号表示系统进程 不可删除
+```
+
+top
+```
+空格 立即刷新
+h 帮助
+```
+
+kill
+```
+原理：向Linux内核发送一个操作系统信号和进程号，然后内核对该进程号指定的进程进程处理
+
+kill -l 列出所有信号
+```
+
+## 网络管理
+
+NetworkManager网络管理服务，受systemd管理，可通过nmtui界面和nmcli命令来配置
+
+- nmtui 文本界面下管理
+- nmcli 命令行设置
+
+```
+yum install NetworkManager
+systemctl start NetworkManager
+systemctl enable NetworkManager
+systemctl status NetworkManager
+
+/etc/sysconfig
+/etc/NetworkManager/子目录中
+
+# nmtui
+which nmtui
+rpm -qf /usr/bin/nmtui
+NetworkManager-tui-1.18.8-2.el7_9.x86_64
+
+# nmcli
+nmcli --help
+
+其中
+ens33 物理设备的名字 kernel
+eth1  设备逻辑名字
+
+ifconfig
+ip addr show
+```
+
+
 ## 性能管理
-
-
-
-
