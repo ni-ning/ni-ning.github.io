@@ -471,3 +471,54 @@ ip addr show
 
 
 ## 性能管理
+
+
+## 管道
+
+上一个命令的输出作为下一个命令的输入
+
+```
+cat /etc/passwd | head -2
+```
+
+## 筛选 grep
+
+```
+grep --help
+Usage: grep [OPTION]... PATTERN [FILE]...
+
+
+# 忽略大小写
+grep -i "Root" passwd
+
+# 扩展正则 同 egrep "root" passwd
+grep -E "root" passwd
+
+# 取反
+grep -v "root" passwd
+
+# 只输出包含该字符串内容的文件名 -r 递归
+grep -l -r "root" /etc
+
+# 输出匹配的行数
+grep -c "root" passwd
+
+# 输出匹配行邻近行 
+-B, --before-context=NUM
+-A, --after-context=NUM
+-C, --context=NUM
+grep -C 5 "root" passwd
+```
+
+## 排序 sort
+```
+常和管道协作的排序命令 
+cat tmp | sort -r -n -o t2
+sort -n -t: -k3 /etc/passwd
+
+-n 按数字排序
+-r 倒序
+-o 输出到文件
+-t 分隔符
+-k 关键字(按照指定列来排序)
+```

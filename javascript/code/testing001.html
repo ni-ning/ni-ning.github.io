@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 产生 min -max 随机整数
+        function randomNum(min,max){
+        return  Math.floor(Math.random()* (max-min) + min);
+        }
+
+        function randomColors(){
+            // 调用产生随机数的函数
+            var r = randomNum(1,256);
+            var g = randomNum(1,256);
+            var b = randomNum(1,256);
+            //拼接
+            var rgb = `rgb(${r},${g},${b})`;
+            // var rgb = 'rgb'+'('+r+','+g+','+b+')';
+            return rgb;
+        }
+
+        var rc = randomColors();
+        console.log(rc);
+        // 应用到网页
+        // document.body.style.backgroundColor = rc;
+
+        document.body.style.backgroundColor = 'green';
+
+
+    </script>
+</body>
+</html>
