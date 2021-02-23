@@ -522,3 +522,33 @@ sort -n -t: -k3 /etc/passwd
 -t 分隔符
 -k 关键字(按照指定列来排序)
 ```
+
+##  重定向
+
+```
+# > 重定向输入, 若t1中有内容直接覆盖
+echo "Hello world" > t1
+# >> 重定向追加，若t1中有内容重开一行追加
+echo "Hello world111" >> t1
+echo "Hello world222" >> t1
+# < 重定向输出
+# << 重定向追加输出
+
+0 代表标准输入 stdin
+1 代表标准输出 stdout
+2 代表标准错误输出 stderr
+
+2>&1的意思: 把标准错误传送到标准输出要去的任何位置
+echo "xxxx" > /dev/null 2>&1
+
+<EOF   EOF  类似左右括号()
+```
+
+## find 命令
+
+递归地在层次目录中处理文件，find语法和其他命令略有区别
+find path -option 动作
+
+```
+find / -name passwd
+```
