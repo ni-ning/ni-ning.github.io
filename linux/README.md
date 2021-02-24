@@ -581,3 +581,12 @@ s		套接字文件
 # 按照文件大小 c(字节) k(KB) M(MB) G(GB)
 find / -size +100M -size -105M 2> /dev/null
 ```
+
+## 模糊查找 - locate (了解即可)
+
+- Linux系统每天特定时间自动索引备份到系统数据库中的文件
+- 需要安装 yum install 指定包
+- /var/lib/mlocate/locatedb
+- updatedb
+
+locate -i passwd	# 其实就是 "find / -name passwd" 另一种写法 
