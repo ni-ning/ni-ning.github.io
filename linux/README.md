@@ -544,11 +544,40 @@ echo "xxxx" > /dev/null 2>&1
 <EOF   EOF  类似左右括号()
 ```
 
-## find 命令
+## 精确查找 - find
 
 递归地在层次目录中处理文件，find语法和其他命令略有区别
 find path -option 动作
 
 ```
+# 按文件名搜索 passwd
 find / -name passwd
+find / -iname Passwd
+
+# 指定层级
+find / -maxdepth 2 -name passwd
+find / -maxdepth 3 -mindepth 3 -name passwd
+find / -name passwd -maxdepth 2 2> /dev/null    # 注意顺序和 2> /dev/null
+
+# 搜索空文件或空文件夹
+find / -empty
+
+# 按权限查找
+find / -perm 644 -name passwd
+
+# 按照所属用户查找
+find / -user nining
+find / -uid 1000
+
+# 按照文件类型来查找
+find / -uid 1000 -type f		# 普通文件
+find / -uid 1000 -type d		# 目录
+find / -uid 0 -type l				# 链接文件
+b 	块设备文件
+c 	字符设备文件
+p		管道文件
+s		套接字文件
+
+# 按照文件大小 c(字节) k(KB) M(MB) G(GB)
+find / -size +100M -size -105M 2> /dev/null
 ```
