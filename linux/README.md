@@ -590,3 +590,64 @@ find / -size +100M -size -105M 2> /dev/null
 - updatedb
 
 locate -i passwd	# 其实就是 "find / -name passwd" 另一种写法 
+
+
+## shell
+
+shell脚本就是将完成一个任务的所有命令按照执行的先后顺序，自上而下写入到一个文本文件中，然后给予执行权限
+
+
+shell基本组成
+
+```
+- 脚本起名有意义 nginx_install.sh
+- #!/usr/bin/bash 指定该脚本运行的解释器   或者 /usr/bin/env bash
+- # 注释说明
+    # Author: Lightnning
+    # Created Time: 2021-02-15 01:01:01
+    # Script Description: This is just a testing script.
+- 给执行权限 chmod 700 nginx_install.sh 或解释器
+./nginx_install.sh 或者  bash nginx_install.sh
+- cat /etc/shells 多个shell
+- 退出脚本 释放系统资源 NUM 返回值状态码 echo $?   0 - 255
+exit NUM   
+```
+
+shell中的特殊符号
+
+```
+~ 家目录 cd ~
+- 上次目录 cd -
+!ec 最近的ec 开头的命令 或 history -> !num 执行历史命令
+$ 取变量中的内容  echo $USER
+`` 字符串中的命令 echo "Date: `date +%F`"
+
+重定向
+wc < text.txt   统计数据流
+wc text.txt 统计文本
+```
+
+计算器
+```
+# 整数
+expr + - \*  / %    \转义符  整型
+expr 1 + 1
+expr 1 - 1
+expr 1 \* 100
+expr 10 / 3
+expr 10 % 3
+echo $?  查看上一条命令是否成功 从而判断是否为整型
+
+echo 10 + 1 &> /dev/null; echo $?  系统的回收站
+
+或者
+echo $((100 + 2))
+
+# 小数
+echo "当前内存使用率: `echo "scale=2; 141*100/7966" | bc`%"
+```
+
+格式化输出
+
+
+
