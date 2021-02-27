@@ -648,6 +648,41 @@ echo "当前内存使用率: `echo "scale=2; 141*100/7966" | bc`%"
 ```
 
 格式化输出
+```
+
+```
+
+交互式输入
+
+```
+输入的数据如汪洋大海，需要一个定位，如变量，命令行编程第一个为命令所以变量放置第二
+```
+
+变量
+
+- 全局变量 所有用户都可以使用，保存在/etc/profile和/etc/bashrc文件中
+- 本地变量 用户私有变量 只有本地用户才能使用，保存在家目录 .bash_profle和.bashrc文件中
+- 用户自定义变量 如脚本中定义的变量
+
+变量定义格式:   变量名=值  
+
+
+在shell编程中变量名和等号之间不能有空格，尽量用大写和命令区分
+```
+clear
+
+NAME='linda'
+AGE=18
+SCORE=100
+
+echo -e "name: $NAME, age: $AGE, score: $SCORE"
+```
+- 取消变量 unset AGE
+- 定义全局变量 export GENDER='female'  注意关键字 export
+
+
+
+
 
 
 
