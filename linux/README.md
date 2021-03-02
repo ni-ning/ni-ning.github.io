@@ -605,7 +605,7 @@ shell是一个程序，采用C语言编写，用用户和Linux内核沟通的桥
 shell脚本: 将完成一个任务的所有命令按照执行的先后顺序，自上而下写入到一个文本文件中，然后给予执行权限
 
 
-shell基本组成
+### shell基本组成
 
 ```
 - 脚本起名有意义 nginx_install.sh
@@ -620,6 +620,23 @@ shell基本组成
 - 退出脚本 释放系统资源 NUM 返回值状态码 echo $?   0 - 255
 exit NUM   
 ```
+
+脚本的执行
+```
+# 给予脚本执行权限
+./script.sh
+
+# 其他方式
+bash script.sh
+
+-x: 查看脚本的执行过程
+-n: 脚本是否有语法错误
+
+# . 和 source 读取文件，执行文件里的命令
+. script.sh
+source script.sh
+```
+
 
 shell中的特殊符号
 
@@ -655,6 +672,61 @@ echo $((100 + 2))
 echo "当前内存使用率: `echo "scale=2; 141*100/7966" | bc`%"
 ```
 
+
+### 变量
+
+变量：变量是编程中最常用的一种临时在内存中存取数据的一种方式
+
+- 某个内容多次使用，代码中重复出现，可用变量存起来
+- 某些命令的执行结果存起来
+
+
+变量分类
+
+- 全局变量 所有用户都可以使用，保存在/etc/profile和/etc/bashrc文件中
+- 本地环境变量 用户私有变量 只有本地用户才能使用，保存在家目录 .bash_profle和.bashrc文件中
+- 用户自定义变量 如脚本中定义的变量
+
+变量定义格式:   变量名=值  
+
+在shell编程中变量名和等号之间不能有空格，尽量用大写和命令区分
+
+```
+clear
+
+NAME='linda'
+AGE=18
+SCORE=100
+
+echo -e "name: $NAME, age: $AGE, score: $SCORE"
+
+```
+- 取消变量 unset AGE
+- 定义全局变量 export GENDER='female'  注意关键字 export 子shell也可用该变量
+- 环境变量 env  所有变量 set
+
+内置变量
+
+系统变量(内置bash中变量): shell本身已经固定好了它的名字和作用
+```
+$? 上一条命令执行状态 0: 正常  非0: 异常或出错
+```
+
+
+
+有类型的变量 declare
+```
+-i 将变量看成整数
+-r 只读 不能修改值，不能unset
+-x export
+-a 索引数组 普通数组
+-A 关联数组
+
+declare -i num
+```
+
+
+
 格式化输出
 ```
 
@@ -665,31 +737,6 @@ echo "当前内存使用率: `echo "scale=2; 141*100/7966" | bc`%"
 ```
 输入的数据如汪洋大海，需要一个定位，如变量，命令行编程第一个为命令所以变量放置第二
 ```
-
-变量
-
-- 全局变量 所有用户都可以使用，保存在/etc/profile和/etc/bashrc文件中
-- 本地变量 用户私有变量 只有本地用户才能使用，保存在家目录 .bash_profle和.bashrc文件中
-- 用户自定义变量 如脚本中定义的变量
-
-变量定义格式:   变量名=值  
-
-
-在shell编程中变量名和等号之间不能有空格，尽量用大写和命令区分
-```
-clear
-
-NAME='linda'
-AGE=18
-SCORE=100
-
-echo -e "name: $NAME, age: $AGE, score: $SCORE"
-```
-- 取消变量 unset AGE
-- 定义全局变量 export GENDER='female'  注意关键字 export
-
-
-
 
 
 
