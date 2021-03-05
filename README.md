@@ -19,7 +19,7 @@
 - [读书笔记]-EffectPython
 - [读书笔记]-PythonTricks
 - [[读书笔记]-LinuxCommand](book/ubuntu)
-
+- [[读书笔记]-LinuxCentOS](linux/README)
 ## 源码分析
 - [[源码分析]-requests](code/requests/)
 - [源码分析]-mongoengine
