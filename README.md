@@ -26,7 +26,6 @@
 - [企业工具服务-uwsgi](tools/uwsgi)
 - [企业工具服务-mongodb](tools/mongodb)
 - [企业工具服务-redis](tools/redis)
-- [企业工具服务-mysql]
 
 
 ## 简易前端
