@@ -3,8 +3,6 @@
 - [Python基础编程](basic/)
 - [Python高级编程](https://advance-python.readthedocs.io/zh_CN/latest/)
 - [设计模式(Python版)](pattern/)
-- 数据结构(Python版)
-- 程序算法(Python版)
 
 ## 常用依赖
 - [打包发布-setuptools](install/setuptools)
@@ -15,17 +13,11 @@
 
 ## 读书笔记
 - [[读书笔记]-FluentPython](https://github.com/ni-ning/FluentPython)
-- [读书笔记]-CookBook
-- [读书笔记]-EffectPython
-- [读书笔记]-PythonTricks
 - [[读书笔记]-LinuxCommand](book/ubuntu)
 - [[读书笔记]-LinuxCentOS](linux/README)
 ## 源码分析
 - [[源码分析]-requests](code/requests/)
-- [源码分析]-mongoengine
 - [[源码分析]-django](code/django/)
-- [源码分析]-flask
-- [源码分析]-apscheduler
 
 ## 企业工具服务
 - [企业工具服务-git](tools/git)
