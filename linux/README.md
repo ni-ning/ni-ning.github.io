@@ -209,34 +209,34 @@ vim不是一个排版工具，只能编辑文本，没有菜单，只有命令
 
 用户管理
 ```
-# user01 UID 1500; 附属于root组; 家目录/tmp/user01; 登录shell /bin/bash
+user01 UID 1500; 附属于root组; 家目录/tmp/user01; 登录shell /bin/bash
 useradd -u 1500 -G root -d /tmp/user01 -s /bin/bash -c "test user01" user01
 
-# user02 系统用户; 不要家目录; 不允许交互登录
+user02 系统用户; 不要家目录; 不允许交互登录
 useradd -r -M -s /sbin/nologin user02
 
-# user03 启用过期 过期时间为 2021-02-30
+user03 启用过期 过期时间为 2021-02-30
 useradd -f 3 -e 2021-02-20 user03
 
-# user04 UID 0 GID 0
+user04 UID 0 GID 0
 useradd -o -u 0 -g 0 user04
 
-# 切换用户
+切换用户
 su - user01
 su - user03
 su - user04
 
-# 锁定用户 解锁用户
+锁定用户 解锁用户
 passwd -l user01
 passwd -u user01
 
-# 设置密码 - 交互
+设置密码 - 交互
 passwd user01
 
-# 设置密码
+设置密码
 echo "passwd" | passwd --stdin user01
 
-# 删除用户
+删除用户
 userdel user01
 rm -rf /home/user01
 rm -rf /var/mail/user01
@@ -310,13 +310,13 @@ yum install elinks
 配置客户端
 cd /etc/yum.repos.d
 
-# 必须.repo结尾 如 testing.repo
+必须.repo结尾 如 testing.repo
 [ftp]
 name=ftp
 baseurl=ftp://localhost/pub
 gpgcheck=0
 
-# 本地源
+本地源
 [local]
 baserurl=file:///mnt/dvd
 gpgcheck=0
@@ -335,20 +335,20 @@ man yum
 
 源码安装
 ```
-# 安装nginx
+安装nginx
 cd ~
 wget http://nginx.org/download/nginx-1.18.0.tar.gz
 tar -zxvf nginx-1.18.0.tar.gz
 cd nginx-1.18.0 
 
-# configure 检查安装环境及依赖
+configure 检查安装环境及依赖
 ./configure
 yum install pcre-devel zlib-devel
 
-# make 编译生成安装文件
+make 编译生成安装文件
 make
 
-# 安装到系统
+安装到系统
 make install
 ```
 
@@ -377,7 +377,7 @@ command主要有
 - mask 注销unit，即无法启动
 - unmask 取消对unit的注销
 
-# 部署vsftpd服务
+部署vsftpd服务
 yum install vsftpd
 
 vim /usr/lib/systemd/system/vsftpd.service   # 该服务软件的启动脚本
@@ -400,9 +400,9 @@ systemctl start vsftpd
 非独立服务 *了解即可
 - xinetd，小的服务放到xinetd托管，提供访问控制、日志和资管管理等功能
 ```
-# 配置文件
+配置文件
 /etc/xinetd.conf
-# 用于存放被托管的服务的目录
+用于存放被托管的服务的目录
 /etc/xinetd.d/
 
 yum install -y telnet-server telnet xinetd
@@ -453,12 +453,12 @@ systemctl status NetworkManager
 /etc/sysconfig
 /etc/NetworkManager/子目录中
 
-# nmtui
+nmtui
 which nmtui
 rpm -qf /usr/bin/nmtui
 NetworkManager-tui-1.18.8-2.el7_9.x86_64
 
-# nmcli
+nmcli
 nmcli --help
 
 其中
@@ -468,9 +468,6 @@ eth1  设备逻辑名字
 ifconfig
 ip addr show
 ```
-
-
-## 性能管理
 
 
 ## 管道
@@ -488,22 +485,22 @@ grep --help
 Usage: grep [OPTION]... PATTERN [FILE]...
 
 
-# 忽略大小写
+- 忽略大小写
 grep -i "Root" passwd
 
-# 扩展正则 同 egrep "root" passwd
+- 扩展正则 同 egrep "root" passwd
 grep -E "root" passwd
 
-# 取反
+- 取反
 grep -v "root" passwd
 
-# 只输出包含该字符串内容的文件名 -r 递归
+- 只输出包含该字符串内容的文件名 -r 递归
 grep -l -r "root" /etc
 
-# 输出匹配的行数
+- 输出匹配的行数
 grep -c "root" passwd
 
-# 输出匹配行邻近行 
+- 输出匹配行邻近行 
 -B, --before-context=NUM
 -A, --after-context=NUM
 -C, --context=NUM
@@ -526,13 +523,13 @@ sort -n -t: -k3 /etc/passwd
 ##  重定向
 
 ```
-# > 重定向输入, 若t1中有内容直接覆盖
+> 重定向输入, 若t1中有内容直接覆盖
 echo "Hello world" > t1
-# >> 重定向追加，若t1中有内容重开一行追加
+>> 重定向追加，若t1中有内容重开一行追加
 echo "Hello world111" >> t1
 echo "Hello world222" >> t1
-# < 重定向输出
-# << 重定向追加输出
+< 重定向输出
+<< 重定向追加输出
 
 0 代表标准输入 stdin
 1 代表标准输出 stdout
@@ -550,26 +547,26 @@ echo "xxxx" > /dev/null 2>&1
 find path -option 动作
 
 ```
-# 按文件名搜索 passwd
+按文件名搜索 passwd
 find / -name passwd
 find / -iname Passwd
 
-# 指定层级
+指定层级
 find / -maxdepth 2 -name passwd
 find / -maxdepth 3 -mindepth 3 -name passwd
 find / -name passwd -maxdepth 2 2> /dev/null    # 注意顺序和 2> /dev/null
 
-# 搜索空文件或空文件夹
+搜索空文件或空文件夹
 find / -empty
 
-# 按权限查找
+按权限查找
 find / -perm 644 -name passwd
 
-# 按照所属用户查找
+按照所属用户查找
 find / -user nining
 find / -uid 1000
 
-# 按照文件类型来查找
+按照文件类型来查找
 find / -uid 1000 -type f		# 普通文件
 find / -uid 1000 -type d		# 目录
 find / -uid 0 -type l				# 链接文件
@@ -578,7 +575,7 @@ c 	字符设备文件
 p		管道文件
 s		套接字文件
 
-# 按照文件大小 c(字节) k(KB) M(MB) G(GB)
+按照文件大小 c(字节) k(KB) M(MB) G(GB)
 find / -size +100M -size -105M 2> /dev/null
 ```
 
@@ -623,16 +620,16 @@ exit NUM
 
 脚本的执行
 ```
-# 给予脚本执行权限
+给予脚本执行权限
 ./script.sh
 
-# 其他方式
+其他方式
 bash script.sh
 
 -x: 查看脚本的执行过程
 -n: 脚本是否有语法错误
 
-# . 和 source 读取文件，执行文件里的命令
+. 和 source 读取文件，执行文件里的命令
 . script.sh
 source script.sh
 ```
@@ -654,7 +651,7 @@ wc text.txt 统计文本
 
 计算器
 ```
-# 整数
+整数
 expr + - \*  / %    \转义符  整型
 expr 1 + 1
 expr 1 - 1
@@ -668,7 +665,7 @@ echo 10 + 1 &> /dev/null; echo $?  系统的回收站
 或者
 echo $((100 + 2))
 
-# 小数
+小数
 echo "当前内存使用率: `echo "scale=2; 141*100/7966" | bc`%"
 ```
 
@@ -812,21 +809,21 @@ echo $((1+2))  需要echo
 比较运算
 ```
 数值比较
-# 等于 equal ==  条件if [ 100 -eq 100 ]; then
+等于 equal ==  条件if [ 100 -eq 100 ]; then
 test 100 -eq 100;echo $?
 
-# 不等于 not equal != 条件if [ 100 -ne 100 ];then
+不等于 not equal != 条件if [ 100 -ne 100 ];then
 test 100 -ne 100;echo $?
 
-# 大于 greater than > 条件if [ 100 -gt 50 ];then
+大于 greater than > 条件if [ 100 -gt 50 ];then
 test 100 -gt 50;echo $?
 
-# 小于 lower than < 条件if [ 100 -lt 200 ];then
+小于 lower than < 条件if [ 100 -lt 200 ];then
 test 100 -lt 200;echo $?
 
-# 大于等于 >= greater equel 条件if [ 100 -ge 40 ];then
+大于等于 >= greater equel 条件if [ 100 -ge 40 ];then
 test 100 -ge 40;echo $?
-# 小于等于 <= lower equel 条件if [ 100 -le 200 ];then
+小于等于 <= lower equel 条件if [ 100 -le 200 ];then
 test 100 -le 200; echo $?
 
 
