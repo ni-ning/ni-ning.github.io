@@ -770,7 +770,7 @@ echo -e "\033[46;37m 天蓝底白字 \033[0m"
 echo -e "\033[47;30m 白底黑字 \033[0m"
 ```
 
-交互式输入 read
+### 交互式输入
 
 默认从键盘输入，回车代表结束
 
@@ -785,6 +785,86 @@ echo -e "\033[47;30m 白底黑字 \033[0m"
 
 read -p "请输入最多6位密码: " -t5 -n6 -s password
 ```
+
+### 核心运算
+
+赋值运算
+```
+name="linda"
+age=18
+
+注: 字符串需要引号
+```
+
+算术运算
+```
+四则运算 + - * / 
+扩展 % **
+
+整型运算 不支持小数
+expr 1 + 2     需要空格
+expr 2 \* 2    需要转义
+echo $((1+2))  需要echo
+
+浮点运算 采用命令组合的方式来实现 echo "scale=N;表达式" | bc
+```
+
+比较运算
+```
+数值比较
+# 等于 equal ==  条件if [ 100 -eq 100 ]; then
+test 100 -eq 100;echo $?
+
+# 不等于 not equal != 条件if [ 100 -ne 100 ];then
+test 100 -ne 100;echo $?
+
+# 大于 greater than > 条件if [ 100 -gt 50 ];then
+test 100 -gt 50;echo $?
+
+# 小于 lower than < 条件if [ 100 -lt 200 ];then
+test 100 -lt 200;echo $?
+
+# 大于等于 >= greater equel 条件if [ 100 -ge 40 ];then
+test 100 -ge 40;echo $?
+# 小于等于 <= lower equel 条件if [ 100 -le 200 ];then
+test 100 -le 200; echo $?
+
+
+字符串比较
+== 等于
+!= 不等于
+-n 检查字符串长度是否大于0
+-z 检查字符串长度是否为0
+
+username="linda"
+test $username == "root";echo $?
+test $username != "root";echo $?
+test -z $username;echo $?
+test -n $username;echo $?
+```
+
+逻辑运算
+```
+&& 与运算
+|| 或运算
+! 取反运算
+
+短路特性
+[ ] && echo "information" && exit 1
+```
+
+文件判断
+
+```
+-e 检测文件是否存在
+-d 检测文件是否存在且为目录
+-f 检测文件是否存在且为文件
+-s 检测文件是否存在且不为空
+-r 检测文件是否存在且为可读
+-w 检测文件是否存在且为可写
+-x 检测文件是否存在且可执行
+```
+
 
 
 
